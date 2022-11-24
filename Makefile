@@ -46,5 +46,5 @@ dmg: VOOPS-$(version).dmg
 .PHONY: clean
 clean:
 	rm -rf build
-	rm -rf VOOPS.jar
+	rm -rf VOOPS*.jar
 	rm -rf VOOPS*.dmg
