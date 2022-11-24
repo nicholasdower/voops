@@ -13,9 +13,9 @@ import java.awt.BasicStroke;
 import java.awt.Color;
 import java.awt.geom.Ellipse2D;
 import java.awt.geom.Line2D;
+import java.awt.geom.Path2D;
 import java.awt.geom.Point2D;
 import java.awt.geom.Arc2D;
-import java.awt.geom.GeneralPath;
 import java.awt.geom.AffineTransform;
 import java.awt.image.BufferedImage;
 import java.awt.RenderingHints;
@@ -39,7 +39,7 @@ public class RotatePanel extends JPanel
   private Ellipse2D.Double theCircle;
   private Arc2D.Double     theArc;
   private Ellipse2D.Double theInnerCircle;
-  private GeneralPath      theSpinner;
+  private Path2D           theSpinner;
 
   private double theArcStart     = 0;
   private double theArcExtent    = 0;
@@ -114,7 +114,7 @@ public class RotatePanel extends JPanel
 
     theInnerCircle    = new Ellipse2D.Double(theCenter.x-(double)spinnerSize*1.5,theCenter.y-(double)spinnerSize*1.5,spinnerSize*3,spinnerSize*3);
 
-    theSpinner = new GeneralPath();
+    theSpinner = new Path2D.Double();
     theSpinner.moveTo((float)theCenter.x,(float)theCenter.y);
     theSpinner.lineTo((float)theCenter.x,(float)theCenter.y-spinnerSize);
     theSpinner.lineTo(((float)theCenter.x+((float)theSize)/2)-spinnerSize*3,(float)theCenter.y-spinnerSize);
@@ -125,7 +125,7 @@ public class RotatePanel extends JPanel
     theSpinner.lineTo((float)theCenter.x,(float)theCenter.y+spinnerSize);
     theSpinner.closePath();
 
-    theSpinner = (GeneralPath)AffineTransform.getRotateInstance(-theCurrentDirection,theCenter.x,theCenter.y).createTransformedShape(theSpinner);
+    theSpinner = (Path2D)AffineTransform.getRotateInstance(-theCurrentDirection,theCenter.x,theCenter.y).createTransformedShape(theSpinner);
 
     theArc = new Arc2D.Double(x,y,theSize,theSize,Math.toDegrees(theArcStart),theArcExtent,Arc2D.PIE);
   }
@@ -165,7 +165,7 @@ public class RotatePanel extends JPanel
 
     theRotation = -(theCurrentDirection-oldDirection);
 
-    theSpinner = (GeneralPath)AffineTransform.getRotateInstance(theRotation,theCenter.x,theCenter.y).createTransformedShape(theSpinner);
+    theSpinner = (Path2D)AffineTransform.getRotateInstance(theRotation,theCenter.x,theCenter.y).createTransformedShape(theSpinner);
 
 
     if( theArcDirection == 0 )
