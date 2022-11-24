@@ -95,7 +95,7 @@ release_id=$(curl \
   -X POST \
   -H "Accept: application/vnd.github+json" \
   -H "Authorization: Bearer $GITHUB_TOKEN" \
-  "https://api.github.com/repos/nicholasdower/sqlui/releases" \
+  "https://api.github.com/repos/nicholasdower/voops/releases" \
   -d "{\"tag_name\":\"v$new_version\",\"target_commitish\":\"$target_commit\",\"name\":\"v$new_version Release\",\"body\":\"$single_line_notes\",\"draft\":false,\"prerelease\":false,\"generate_release_notes\":false}" | tr -d '\n' | grep -E -o '"id": *[0-9]+' | head -n 1 | sed 's/"id": *//g')
 
 echo 'Uploading release asset'
@@ -104,7 +104,7 @@ curl \
   -H "Accept: application/vnd.github+json" \
   -H "Authorization: Bearer $GITHUB_TOKEN" \
   -H "Content-Type: application/x-tar" \
-  "https://uploads.github.com/repos/nicholasdower/sqlui/releases/$release_id/assets?name=$jar_file" \
+  "https://uploads.github.com/repos/nicholasdower/voops/releases/$release_id/assets?name=$jar_file" \
   --data-binary @"$jar_file" > /dev/null
 
 echo "Version v$new_version successfully released"
