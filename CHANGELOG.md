@@ -1,3 +1,7 @@
+## 4.0.0
+
+- No changes.
+
 ## 3.0.0
 
 - Now as a Mac app.
