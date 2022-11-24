@@ -1,0 +1,3 @@
+Make window and modules larger by default.
+It is not possible to resize canvas while for instance editing points on a shape.
+Editing points on a shape seems to break its fill. Try with an inserted image from clipboard or a gradient fill.

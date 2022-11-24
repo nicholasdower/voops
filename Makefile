@@ -43,6 +43,8 @@ VOOPS-$(version).dmg: mac/options VOOPS-$(version).jar
 	mkdir -p target
 	cp VOOPS-$(version).jar target/
 	jpackage --app-version $(version) --main-jar VOOPS-$(version).jar @mac/options
+	rm -rf target
+	open $@
 
 dmg: VOOPS-$(version).dmg
 
