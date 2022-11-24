@@ -1,4 +1,4 @@
---input .
+--input target
 --name VOOPS
 --main-class VOOPS
 --about-url "https://github.com/nicholasdower/voops"
