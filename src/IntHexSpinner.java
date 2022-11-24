@@ -19,9 +19,9 @@ public class IntHexSpinner extends JSpinner
   {
     String[] aHexArray = new String[256];
     for( int i = 0 ; i <= 255 ; i++ )
-    { 
+    {
       aHexArray[i] = (Integer.toHexString(i)).toUpperCase();
-      if( aHexArray[i].length() == 1 ) 
+      if( aHexArray[i].length() == 1 )
         aHexArray[i] = "0" + aHexArray[i];
     }
 
@@ -109,15 +109,15 @@ public class IntHexSpinner extends JSpinner
     for( int i= 0 ; i < length ; i++ )
     {
       curr = aString.charAt(i)-'0';
-   
+
       if( curr < 0 )
         return -1;
       if( curr > 9 )
       {
         curr = aString.charAt(i)-'a';
-        if( curr > 5 || curr < 0 ) 
+        if( curr > 5 || curr < 0 )
           return -1;
-        curr += 10;     
+        curr += 10;
       }
       value += curr*Math.pow(16,power--);
     }

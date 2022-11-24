@@ -39,7 +39,7 @@ public class ShapeGetterToolbar extends JPanel
     theFillBox.addActionListener(listener);
     theStrokeBox.addActionListener(listener);
     theStrokeColorBox.addActionListener(listener);
-    
+
 
     GridBagLayout gridBagLayout = new GridBagLayout();
     this.setLayout(gridBagLayout);
@@ -86,7 +86,7 @@ public class ShapeGetterToolbar extends JPanel
       return;
 
     theTool.setFillType(theFillBox.isSelected(),theStrokeBox.isSelected(),theStrokeColorBox.isSelected());
-  } 
+  }
 
   public void setTool( ShapeGetterTool aTool )
   {

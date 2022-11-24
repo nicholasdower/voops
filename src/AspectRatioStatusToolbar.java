@@ -19,7 +19,7 @@ public class AspectRatioStatusToolbar extends JPanel
 
   public AspectRatioStatusToolbar()
   {
-    theWidthField = new JLabel("Width: "); 
+    theWidthField = new JLabel("Width: ");
     theHeightField = new JLabel("Length: ");
 
     theWidthField.setEnabled(false);

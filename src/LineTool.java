@@ -22,7 +22,7 @@ public class LineTool extends Tool implements LineAngleLimitable
   private Point2D.Double theStartPoint;
 
   private static SingleLineToolbar theToolbar = new SingleLineToolbar();
-  
+
   private double[] theLengths;
   private double[] theAngles;
 

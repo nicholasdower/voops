@@ -94,7 +94,7 @@ public class SelectionToolbar extends JPanel
 
     theRotationPanel = new RotationPanel(theSelectable);
     theTabbedPane.addTab("",new ImageIcon(this.getClass().getClassLoader().getResource("Rotate.png")),theRotationPanel);
-    
+
     this.setLayout(new GridLayout(1, 1));
     this.add(theTabbedPane);
     this.setPreferredSize(new Dimension(270,170));

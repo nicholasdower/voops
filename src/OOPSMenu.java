@@ -183,7 +183,7 @@ public class OOPSMenu extends JMenuBar
     theOpenFileChooser.addChoosableFileFilter(VOOPSFileFilter);
     theOpenFileChooser.setFileFilter(VOOPSFileFilter);
 
-   
+
     theSmoothButton = new JCheckBox("Smooth");
     theSmoothButton.setSelected(true);
     theSmoothButton.setOpaque(false);
@@ -443,7 +443,7 @@ public class OOPSMenu extends JMenuBar
         }
       }
     );
-    
+
 
     theToolbarPasteFromClipboardButton = new OOPSButton("FromClipboard.png","Paste From Clipboard");
     theToolbarPasteFromClipboardButton.addActionListener(pasteFromClipboardListener);
@@ -605,7 +605,7 @@ public class OOPSMenu extends JMenuBar
     moveToBackItem.addActionListener(moveListener);
     moveUpALayerItem.addActionListener(moveListener);
     moveDownALayerItem.addActionListener(moveListener);
- 
+
     moveMenu.add(moveUpItem);
     moveMenu.add(moveDownItem);
     moveMenu.addSeparator();
@@ -791,7 +791,7 @@ public class OOPSMenu extends JMenuBar
     gbc.anchor = GridBagConstraints.LINE_START;
     gridBagLayout.setConstraints(helpMenu, gbc);
     this.add(helpMenu);
- 
+
     if(!"true".equals(System.getProperty("apple.laf.useScreenMenuBar")))
     {
       gbc = new GridBagConstraints();
@@ -1121,10 +1121,10 @@ public class OOPSMenu extends JMenuBar
         BufferedImage image = ImageIO.read(TextureChooser.theFileChooser.getSelectedFile());
         insertImage(image,theOOPS.getDrawingArea());
       }
-      catch( IOException ioe ) {System.out.println(ioe);} 
+      catch( IOException ioe ) {System.out.println(ioe);}
     }
   }
- 
+
   public void insertImage(BufferedImage anImage, DrawingArea aDrawingArea)
   {
     TransformableTexturePaint paint = new TransformableTexturePaint(anImage,TransformableTexturePaint.KIND_TEXTURE);
@@ -1238,7 +1238,7 @@ public class OOPSMenu extends JMenuBar
       PaintableShape shape = new PaintableShape(PaintableShape.TYPE_FILL);
       shape.setFillPaint(paint);
       shape.setDrawPaint(new Color(0,0,0,0));
-      shape.setStroke(new BasicStroke(0f)); 
+      shape.setStroke(new BasicStroke(0f));
       shape.setShape(rect);
 
       theOOPS.getDrawingArea().setUndoPoint(new CompleteUndo(theOOPS.getDrawingArea()));
@@ -1323,7 +1323,7 @@ public class OOPSMenu extends JMenuBar
         }
         Rectangle2D.Double bounds = new Rectangle2D.Double();
         bounds.setRect(combination.getBounds2D());
-        
+
         for( int i = 0 ; i < theShapeClipboard.size() ; i++ )
         {
           ((PaintableShape)theShapeClipboard.get(i)).transform(AffineTransform.getTranslateInstance(-bounds.x,-bounds.y));
@@ -1370,7 +1370,7 @@ public class OOPSMenu extends JMenuBar
           int index = oldGroups.indexOf(currentGroup);
           ((PaintableShape)newShapes.get(newShapes.size()-1)).setGroup((Vector)newGroups.get(index));
         }
-      } 
+      }
 
       for( int i = 0 ; i < oldGroups.size() ; i++ )
       {
@@ -1394,7 +1394,7 @@ public class OOPSMenu extends JMenuBar
       theOOPS.getDrawingArea().repaint();
     }
   }
-  
+
   public void open()
   {
     if( theOpenFileChooser.showOpenDialog(theOOPS) == JFileChooser.APPROVE_OPTION )
@@ -1429,7 +1429,7 @@ public class OOPSMenu extends JMenuBar
         theFilenames.put(area,filename);
         theExtensions.put(area,extension);
         theOOPS.getDrawingFrame().setTitle(filename.substring(filename.lastIndexOf(System.getProperty("file.separator"))+1) + "." + extension);
-      } 
+      }
       catch( IOException ioe ) {System.out.println(ioe);}
       return;
     }
@@ -1490,7 +1490,7 @@ public class OOPSMenu extends JMenuBar
 
     String filename  = (String)theFilenames.get(theOOPS.getDrawingArea());
     String extension = (String)theExtensions.get(theOOPS.getDrawingArea());
- 
+
     if( filename == null || extension == null )
       save();
     else
@@ -1528,7 +1528,7 @@ public class OOPSMenu extends JMenuBar
       String extension = null;
       int i = filename.lastIndexOf('.');
 
-      if (i > 0 &&  i < filename.length() - 1) 
+      if (i > 0 &&  i < filename.length() - 1)
       {
         extension = filename.substring(i+1).toLowerCase();
 
@@ -1556,7 +1556,7 @@ public class OOPSMenu extends JMenuBar
 
       if( extension.toLowerCase().equals("ico") )
       {
-        try 
+        try
         {
           BufferedImage[] images = new BufferedImage[8];
 
@@ -1653,14 +1653,14 @@ public class OOPSMenu extends JMenuBar
         try
         {
           ImageIO.write( theOOPS.getDrawingArea().getImage(), extension, new File(filename+"."+extension) );
-        } 
+        }
         catch( java.io.IOException           ioe  ){System.out.println(ioe); }
       }
       else if( extension.toLowerCase().equals("gif") )
       {
         AnimatedGifEncoder e = new AnimatedGifEncoder();
         e.start(filename+"."+extension);
-        e.setQuality(1); 
+        e.setQuality(1);
         e.addFrame(theOOPS.getDrawingArea().getImage(BufferedImage.TYPE_INT_RGB));
         e.finish();
       }
@@ -1678,7 +1678,7 @@ public class OOPSMenu extends JMenuBar
           oos.close();
           da.setCursor(c);
           da.setZoom(oldZoom);
-        } 
+        }
         catch( Exception           ioe  ){System.out.println(ioe); ioe.printStackTrace();}
       }
       else if( extension.toLowerCase().equals("svg") )
@@ -1800,7 +1800,7 @@ public class OOPSMenu extends JMenuBar
             if( fillPaint.getClass().equals(Class.forName("TransformableTexturePaint")) )
             {
               currentShape = currentShape.get();
-              
+
               try
               {
                 originalTransform = ((TransformableTexturePaint)fillPaint).getTransform();
@@ -1822,7 +1822,7 @@ public class OOPSMenu extends JMenuBar
 
               splitTransformString0 = split0.split(",");
               splitTransformString1 = split1.split(",");
-              
+
               matrixString = "matrix(" + splitTransformString0[0].trim() + " " + splitTransformString1[0].trim() + " " + splitTransformString0[1].trim() + " " + splitTransformString1[1].trim() + " " + splitTransformString0[2] + " " + splitTransformString1[2] + ")";
             }
             else
@@ -1961,7 +1961,7 @@ public class OOPSMenu extends JMenuBar
           pw.println("  </g>");
           pw.print("</svg>");
           pw.close();
-        } 
+        }
         catch( Exception           ioe  ){System.out.println(ioe); ioe.printStackTrace();}
       }
       else
@@ -1969,7 +1969,7 @@ public class OOPSMenu extends JMenuBar
         try
         {
           ImageIO.write( theOOPS.getDrawingArea().getImage(BufferedImage.TYPE_INT_RGB), extension, new File(filename+"."+extension) );
-        } 
+        }
         catch( java.io.IOException           ioe  ){System.out.println(ioe); }
       }
       theOOPS.getDrawingFrame().setTitle(filename.substring(filename.lastIndexOf(System.getProperty("file.separator"))+1) + "." + extension);

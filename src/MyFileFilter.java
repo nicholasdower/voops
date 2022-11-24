@@ -7,12 +7,12 @@ import java.io.File;
 import javax.swing.*;
 import javax.swing.filechooser.*;
 
-public class MyFileFilter extends javax.swing.filechooser.FileFilter implements java.io.FileFilter 
+public class MyFileFilter extends javax.swing.filechooser.FileFilter implements java.io.FileFilter
 {
     String[] theExtensions;
     boolean  theShowDirs;
     String   theDescription = "File Type";
- 
+
     public MyFileFilter( String[] someExt, String aDescription )
     {
       this(true,someExt,aDescription);
@@ -24,11 +24,11 @@ public class MyFileFilter extends javax.swing.filechooser.FileFilter implements 
       theShowDirs   = showDirs;
       theDescription = aDescription;
     }
-  
+
     //Accept all directories files possibly containing icons
-    public boolean accept(File f) 
+    public boolean accept(File f)
     {
-        if(f.isDirectory()) 
+        if(f.isDirectory())
         {
           return theShowDirs;
         }
@@ -57,7 +57,7 @@ public class MyFileFilter extends javax.swing.filechooser.FileFilter implements 
             if( extension.equals(theExtensions[j]) )
             {
               return true;
-            } 
+            }
           }
         }
 
@@ -70,7 +70,7 @@ public class MyFileFilter extends javax.swing.filechooser.FileFilter implements 
     }
 
     //The description of this filter
-    public String getDescription() 
+    public String getDescription()
     {
       return theDescription;
     }

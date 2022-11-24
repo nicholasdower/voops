@@ -85,7 +85,7 @@ public class HSChooser extends JPanel
     g.fillRect(theLocation.x-1,theLocation.y+2,3,5);
   }
 
-  public void setColor( Color aColor ) 
+  public void setColor( Color aColor )
   {
     theColor = aColor;
     if( theImage == null )

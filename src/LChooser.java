@@ -43,7 +43,7 @@ public class LChooser extends JPanel
     g.drawImage(theImage,0,0,this);
   }
 
-  public void setColor( Color aColor ) 
+  public void setColor( Color aColor )
   {
     float[] hsl = HSLRGBConverter.RGBtoHSL(aColor.getRGB());
     float lStep = 100f/((float)getHeight());

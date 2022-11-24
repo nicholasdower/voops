@@ -71,7 +71,7 @@ public class SmoothPolygonTool extends Tool implements Curveable
       thePath = new SmoothPath(thePadding, theThreshold);
       thePath.start(e.getX(),e.getY());
       isInited = true;
-    } 
+    }
   }
 
   public void mouseReleased( MouseEvent e )

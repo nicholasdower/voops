@@ -89,7 +89,7 @@ public class TextTool extends Tool
             break;
           }
         }
- 
+
         if( theCurrentResizor >= 0 )
         {
           switch(theCurrentResizor)
@@ -152,7 +152,7 @@ public class TextTool extends Tool
             break;
           }
         }
- 
+
         if( theCurrentResizor >= 0 )
         {
           isResizing = true;

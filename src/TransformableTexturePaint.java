@@ -88,7 +88,7 @@ public class TransformableTexturePaint implements Paint, Serializable
   {
     AffineTransform transform = (AffineTransform)xform.clone();
     transform.concatenate(theTransform);
-   
+
     if( hints == null )
       hints = theHints;
 
@@ -128,12 +128,12 @@ public class TransformableTexturePaint implements Paint, Serializable
   public Color[] getColors()
   {
     return theColors;
-  } 
+  }
 
   public void setColors( Color[] someColors )
   {
     theColors = someColors;
-  } 
+  }
 
   public void transform( AffineTransform aTransform )
   {
@@ -209,8 +209,8 @@ public class TransformableTexturePaint implements Paint, Serializable
 
     int x      = (int)((((double)(subsetRect.x - theAnchor.x))/((double)theAnchor.width)) * ((double)theOriginalImage.getWidth()) );
     int y      = (int)((((double)(subsetRect.y - theAnchor.y))/((double)theAnchor.height)) * ((double)theOriginalImage.getHeight()) );
-    int width  = (int)( (((double)subsetRect.width)/((double)theAnchor.width)) * theOriginalImage.getWidth() ); 
-    int height = (int)( (((double)subsetRect.height)/((double)theAnchor.height)) * theOriginalImage.getHeight() ); 
+    int width  = (int)( (((double)subsetRect.width)/((double)theAnchor.width)) * theOriginalImage.getWidth() );
+    int height = (int)( (((double)subsetRect.height)/((double)theAnchor.height)) * theOriginalImage.getHeight() );
 
     if( theType == TYPE_STRETCH )
       return new TransformableTexturePaint(theOriginalImage.getSubimage(x,y,width,height),new Rectangle(x,y,width,height),theTransform,theKind );
@@ -242,7 +242,7 @@ public class TransformableTexturePaint implements Paint, Serializable
       if( DrawingArea.thePaintImages.contains(theOriginalImage) )
         out.writeInt(DrawingArea.thePaintImages.indexOf(theOriginalImage));
       else
-      { 
+      {
         DrawingArea.thePaintImages.add(theOriginalImage);
         out.writeInt(DrawingArea.thePaintImages.indexOf(theOriginalImage));
         out.writeInt(theOriginalImage.getWidth());

@@ -58,7 +58,7 @@ public class GIFCreatePanel extends JPanel
 
   private Vector theImages;
   private Vector theSnaps;
-  
+
   private String theCurrentFileName = null;
 
   public GIFCreatePanel( OOPS anOOPS )
@@ -164,12 +164,12 @@ public class GIFCreatePanel extends JPanel
 
 
     theContent    = new JPanel(new GridLayout(0,1));
-    theScrollPane = new JScrollPane(theContent); 
+    theScrollPane = new JScrollPane(theContent);
 
 
     GridBagLayout layout = new GridBagLayout();
     this.setLayout(layout);
- 
+
     GridBagConstraints gbc;
 
     gbc = new GridBagConstraints();
@@ -331,7 +331,7 @@ public class GIFCreatePanel extends JPanel
     else
       doSaveWork();
   }
- 
+
   public void save()
   {
     if( theImages.size() <= 0 )
@@ -356,7 +356,7 @@ public class GIFCreatePanel extends JPanel
       String extension = null;
       int i = filename.lastIndexOf('.');
 
-      if (i > 0 &&  i < filename.length() - 1) 
+      if (i > 0 &&  i < filename.length() - 1)
       {
         extension = filename.substring(i+1).toLowerCase();
 
@@ -432,17 +432,17 @@ public class GIFCreatePanel extends JPanel
   {
     if( theOOPS.getDrawingArea() == null )
       return;
-  
+
     final BufferedImage image = theOOPS.getDrawingArea().getImage(BufferedImage.TYPE_INT_RGB);
     if( theImages.size() == 0 )
       theBackgroundColor = theOOPS.getDrawingArea().getBackground();
- 
+
 
     final JPanel newSnapShot = new JPanel();
     newSnapShot.setBorder(BorderFactory.createBevelBorder(BevelBorder.RAISED));
     GridBagLayout layout = new GridBagLayout();
     newSnapShot.setLayout(layout);
- 
+
     GridBagConstraints gbc;
 
     JLabel label = new JLabel(new ImageIcon(image));
@@ -493,7 +493,7 @@ public class GIFCreatePanel extends JPanel
           int index = theSnaps.indexOf(newSnapShot);
           if( index == 0 )
             return;
- 
+
           theSnaps.remove(newSnapShot);
           theSnaps.insertElementAt(newSnapShot,index-1);
 
@@ -528,7 +528,7 @@ public class GIFCreatePanel extends JPanel
           int index = theSnaps.indexOf(newSnapShot);
           if( index == theSnaps.size()-1 )
             return;
- 
+
           theSnaps.remove(newSnapShot);
           theSnaps.insertElementAt(newSnapShot,index+1);
 

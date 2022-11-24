@@ -60,7 +60,7 @@ public class RotationPanel extends JPanel
     deltaTitleLabel.setForeground(new Color(100,100,255));
     deltaTitleLabel.setFont(new Font("Times",Font.BOLD,18));
 
-      
+
     ActionListener actionListener = new ActionListener()
     {
       public void actionPerformed( ActionEvent e )
@@ -71,7 +71,7 @@ public class RotationPanel extends JPanel
         }
         catch( NumberFormatException nfe )
         {
-  
+
         }
       }
     };
@@ -88,7 +88,7 @@ public class RotationPanel extends JPanel
           }
           catch( NumberFormatException nfe )
           {
-  
+
           }
         }
       }
@@ -105,7 +105,7 @@ public class RotationPanel extends JPanel
         {
           if( !((RotatePanel)e.getSource()).isResizing() )
             theSelectable.resetRotation();
-          else 
+          else
             theSelectable.rotate(theRotatePanel.getLastRotation());
 
           rotationLabel.setText(theFormat.format(Math.toDegrees(theRotatePanel.getDirection())) + '\u00B0');

@@ -25,7 +25,7 @@ public class LocationGetter
       return new Point2D.Double(anX,aY);
 
     anAngle = anAngle%ANG360;
- 
+
     double x;
     double y;
 

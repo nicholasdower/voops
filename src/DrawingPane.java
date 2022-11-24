@@ -25,7 +25,7 @@ import java.awt.event.MouseEvent;
 import javax.swing.border.LineBorder;
 
 public class DrawingPane extends JScrollPane
-{  
+{
   private OOPS        theOOPS;
 
   private DrawingArea theDrawingArea;
@@ -45,17 +45,17 @@ public class DrawingPane extends JScrollPane
 
     theDrawingArea = aDrawingArea;
 
-    BufferedImage bi = new BufferedImage(24, 24, BufferedImage.TYPE_INT_ARGB); 
-    Graphics2D big = bi.createGraphics(); 
-    big.setColor(new Color(122,138,153)); 
-    big.fillRect(0,0,12,12); 
-    big.fillRect(12,12,12,12); 
-    big.setColor(new Color(238,238,238)); 
-    big.fillRect(12,0,12,12); 
-    big.fillRect(0,12,12,12); 
+    BufferedImage bi = new BufferedImage(24, 24, BufferedImage.TYPE_INT_ARGB);
+    Graphics2D big = bi.createGraphics();
+    big.setColor(new Color(122,138,153));
+    big.fillRect(0,0,12,12);
+    big.fillRect(12,12,12,12);
+    big.setColor(new Color(238,238,238));
+    big.fillRect(12,0,12,12);
+    big.fillRect(0,12,12,12);
 
-    Rectangle r = new Rectangle(0,0,24,24); 
-    theBackgroundPaint = new TexturePaint(bi,r); 
+    Rectangle r = new Rectangle(0,0,24,24);
+    theBackgroundPaint = new TexturePaint(bi,r);
 
     JPanel client = new JPanel()
     {

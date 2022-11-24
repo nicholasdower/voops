@@ -65,17 +65,17 @@ public class Gradient extends JPanel
     }
 
     setBackground(new Color(0,0,0,0));
-    BufferedImage bi = new BufferedImage(16, 16, BufferedImage.TYPE_INT_RGB); 
-    Graphics2D big = bi.createGraphics(); 
-    big.setColor(new Color(122,138,153)); 
-    big.fillRect(0,0,8,8); 
-    big.fillRect(8,8,8,8); 
-    big.setColor(new Color(238,238,238)); 
-    big.fillRect(8,0,8,8); 
-    big.fillRect(0,8,8,8); 
+    BufferedImage bi = new BufferedImage(16, 16, BufferedImage.TYPE_INT_RGB);
+    Graphics2D big = bi.createGraphics();
+    big.setColor(new Color(122,138,153));
+    big.fillRect(0,0,8,8);
+    big.fillRect(8,8,8,8);
+    big.setColor(new Color(238,238,238));
+    big.fillRect(8,0,8,8);
+    big.fillRect(0,8,8,8);
 
-    Rectangle r = new Rectangle(0,0,16,16); 
-    theBackgroundPaint = new TexturePaint(bi,r); 
+    Rectangle r = new Rectangle(0,0,16,16);
+    theBackgroundPaint = new TexturePaint(bi,r);
 
 
     GridBagLayout gridBagLayout = new GridBagLayout();
@@ -142,7 +142,7 @@ public class Gradient extends JPanel
 
   private void updateImage()
   {
-    theImage = new BufferedImage(getWidth(), getHeight(), BufferedImage.TYPE_INT_ARGB); 
+    theImage = new BufferedImage(getWidth(), getHeight(), BufferedImage.TYPE_INT_ARGB);
 
     Color[] gradient0 = ColorGradienter.gradient(theLabels[0].getColor(),theLabels[2].getColor(),getHeight());
     Color[] gradient1 = ColorGradienter.gradient(theLabels[1].getColor(),theLabels[3].getColor(),getHeight());
@@ -208,7 +208,7 @@ public class Gradient extends JPanel
     }
     return image;
   }
- 
+
   public void paint( Graphics g )
   {
     if( theImage == null || theImage.getWidth() != getWidth() || theImage.getHeight() != getHeight() )
@@ -225,7 +225,7 @@ public class Gradient extends JPanel
     theType = aType;
     updateImage();
   }
-  
+
   public TransformableTexturePaint getPaint()
   {
     return thePaint;

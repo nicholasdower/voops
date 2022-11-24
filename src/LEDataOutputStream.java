@@ -6,7 +6,7 @@ import java.io.OutputStream;
 /**
  * <H3>LEDataOutputStream - Little Endian Data Input Stream</H3>
  *
- * A data output stream lets an application write primitive Java data 
+ * A data output stream lets an application write primitive Java data
  * types to an output stream in a portable way. This particular output
  * stream is setup to write data in a format that would be written by
  * a system which uses little endian memory architecture.<p>

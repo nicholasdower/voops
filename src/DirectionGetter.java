@@ -39,7 +39,7 @@ public class DirectionGetter
 
     if( y0 < y1 )    //  180 - 360
     {
-      if( x0 < x1 )      //  270 - 360 
+      if( x0 < x1 )      //  270 - 360
       {
         return Math.atan(Math.abs(x0-x1)/Math.abs(y0-y1)) + ANG270;
       }

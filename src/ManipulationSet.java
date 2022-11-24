@@ -26,7 +26,7 @@ public class ManipulationSet
     theShape = aShape;
     createManipulators();
   }
- 
+
   public int getWindRule()
   {
     return theWindingRule;
@@ -113,7 +113,7 @@ public class ManipulationSet
         {
           if( lastControl != null && lastPoint != null )
             theManipulators.add(new Manipulator(theSize,new Point2D.Float(lastControl[0],lastControl[1]), new Point2D.Float(lastPoint[0],lastPoint[1]), null ));
-          
+
           firstManipulator = null;
 
           lastPoint = new float[]{points[0],points[1]};

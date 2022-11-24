@@ -40,10 +40,10 @@ public class MoveTool extends Tool implements Selectable
 
   private AffineTransform theTransform;
 
-  private KeyListener theDeleteListener; 
+  private KeyListener theDeleteListener;
 
   private SelectionToolbar theSelectionToolbar;
- 
+
   private Point2D.Double theRotationCenter;
 
   public MoveTool( DrawingArea aDrawingArea )
@@ -142,7 +142,7 @@ public class MoveTool extends Tool implements Selectable
             break;
           }
         }
- 
+
         if( theCurrentResizor >= 0 )
         {
           switch(theCurrentResizor)
@@ -207,7 +207,7 @@ public class MoveTool extends Tool implements Selectable
 
       theLastPoint = new Point(e.getX(),e.getY());
       Vector shapes = getDrawingArea().getShapes();
- 
+
       boolean found = false;
       for( int i = (shapes.size()-1) ; i >= 0 ; i-- )
       {
@@ -224,13 +224,13 @@ public class MoveTool extends Tool implements Selectable
                 if( group != null )
                 {
                   for( int j = 0 ; j < group.size() ; j++ )
-                  { 
+                  {
                     index = theSelectedShapes.indexOf(group.get(j));
                     theSelectedShapes.remove(group.get(j));
                   }
                 }
                 else
-                { 
+                {
                   index = theSelectedShapes.indexOf(shapes.get(i));
                   theSelectedShapes.remove(shapes.get(i));
                 }
@@ -251,7 +251,7 @@ public class MoveTool extends Tool implements Selectable
         setIsStarted(false);
       }
       else
-      { 
+      {
         getDrawingArea().clearDrawingArea();
         setIsStarted(false);
         theSelectedShapes      = new Vector();
@@ -286,7 +286,7 @@ public class MoveTool extends Tool implements Selectable
             break;
           }
         }
- 
+
         if( theCurrentResizor >= 0 )
         {
           isResizing = true;
@@ -298,7 +298,7 @@ public class MoveTool extends Tool implements Selectable
 
       theLastPoint = new Point(e.getX(),e.getY());
       Vector shapes = getDrawingArea().getShapes();
- 
+
       boolean found = false;
       for( int i = (shapes.size()-1) ; i >= 0 ; i-- )
       {
@@ -322,7 +322,7 @@ public class MoveTool extends Tool implements Selectable
                     theSelectedShapes.add((PaintableShape)group.get(j));
                   }
                 }
-              } 
+              }
             }
           }
           else
@@ -331,7 +331,7 @@ public class MoveTool extends Tool implements Selectable
             {
               theSelectedShapes      = new Vector();
               theLastAdded = (PaintableShape)shapes.get(i);
-              theSelectedShapes.add(theLastAdded); 
+              theSelectedShapes.add(theLastAdded);
 
               Vector group = theLastAdded.getGroup();
               if( group != null )
@@ -343,12 +343,12 @@ public class MoveTool extends Tool implements Selectable
                     theSelectedShapes.add((PaintableShape)group.get(j));
                   }
                 }
-              } 
+              }
             }
             else
             {
               theLastAdded = (PaintableShape)shapes.get(i);
-              theSelectedShapes.add(theLastAdded); 
+              theSelectedShapes.add(theLastAdded);
 
               Vector group = theLastAdded.getGroup();
               if( group != null )
@@ -360,8 +360,8 @@ public class MoveTool extends Tool implements Selectable
                     theSelectedShapes.add((PaintableShape)group.get(j));
                   }
                 }
-              } 
-            }       
+              }
+            }
           }
 
           found = true;
@@ -376,7 +376,7 @@ public class MoveTool extends Tool implements Selectable
         setIsStarted(true);
       }
       else
-      { 
+      {
         getDrawingArea().clearDrawingArea();
         setIsStarted(false);
         theSelectedShapes      = new Vector();
@@ -510,7 +510,7 @@ public class MoveTool extends Tool implements Selectable
     Rectangle2D.Double combinedBounds = new Rectangle2D.Double();
     combinedBounds.setRect(combination.getBounds2D());
     Rectangle2D.Double newCombinedBounds = null;
-    
+
     double width  = combinedBounds.width*anXFactor;
     double height = combinedBounds.height*aYFactor;
     double x,y;
@@ -602,22 +602,22 @@ public class MoveTool extends Tool implements Selectable
     oldBounds.setRect(combination.getBounds2D());
 
     if( aResizor == 0 )
-    { 
+    {
       Point2D pnt = shearTransform.transform(new Point2D.Double(oldBounds.x,oldBounds.y+oldBounds.height),null);
       translateTransform.setToTranslation(oldBounds.x-pnt.getX(), 0);
     }
     else if( aResizor == 1 )
-    { 
+    {
       Point2D pnt = shearTransform.transform(new Point2D.Double(oldBounds.x+oldBounds.width,oldBounds.y),null);
       translateTransform.setToTranslation(0, oldBounds.y-pnt.getY());
     }
     else if( aResizor == 2 )
-    { 
+    {
       Point2D pnt = shearTransform.transform(new Point2D.Double(oldBounds.x,oldBounds.y),null);
       translateTransform.setToTranslation(0, oldBounds.y-pnt.getY());
     }
     else if( aResizor == 3 )
-    { 
+    {
       Point2D pnt = shearTransform.transform(new Point2D.Double(oldBounds.x,oldBounds.y),null);
       translateTransform.setToTranslation(oldBounds.x-pnt.getX(), 0);
     }
@@ -665,7 +665,7 @@ public class MoveTool extends Tool implements Selectable
         getDrawingArea().replaceShape((PaintableShape)shapes.get(i),subtracted);
       }
     }
-    
+
     setCoverRect();
     paintCover();
     getDrawingArea().repaint();
@@ -704,7 +704,7 @@ public class MoveTool extends Tool implements Selectable
         }
       }
     }
-    
+
     setCoverRect();
     paintCover();
     getDrawingArea().repaint();

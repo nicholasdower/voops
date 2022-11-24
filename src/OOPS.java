@@ -56,7 +56,7 @@ public class OOPS extends JFrame
   private ScriptTool     theScriptTool;
 
   private RenderingHints theRenderingHints;
-  
+
   public OOPS( String[] args )
   {
     super("VOOPS - NicholasDower@gmail.com 2006");
@@ -67,7 +67,7 @@ public class OOPS extends JFrame
     progress.setForeground(new Color(35,85,183));
     int progressCount = 1;
     progress.setStringPainted(true);
-         
+
     JPanel panel = new JPanel(new BorderLayout());
     panel.setBorder(BorderFactory.createBevelBorder(BevelBorder.RAISED));
     panel.add(label,BorderLayout.CENTER);
@@ -93,7 +93,7 @@ public class OOPS extends JFrame
       return;
     }
     splash.setVisible(true);
-          
+
 
     this.setIconImage(new ImageIcon(this.getClass().getClassLoader().getResource("OOPSIcon2.png")).getImage());
     progress.setValue(progressCount++);
@@ -136,7 +136,7 @@ public class OOPS extends JFrame
     theToolbar.getContentPane().setLayout(new BorderLayout());
     theToolbar.pack();
     progress.setValue(progressCount++);
- 
+
     theToolbar.setSize(theToolbarSize.width,theToolbarSize.height);
     theToolbar.setVisible(true);
     progress.setValue(progressCount++);
@@ -213,7 +213,7 @@ public class OOPS extends JFrame
     theLayerFrame.setSize(theLayerSize.width,theLayerSize.height);
     theLayerFrame.setVisible(true);
     progress.setValue(progressCount++);
- 
+
     theFillStrokePanel = new FillStrokePanel(theColorChooser,this);
     progress.setValue(progressCount++);
 
@@ -243,7 +243,7 @@ public class OOPS extends JFrame
           theToolPanel.getCurrentTool().setDrawPaint(theFillStrokePanel.getStrokePaint());
           theToolPanel.getCurrentTool().setStroke(theFillStrokePanel.getStroke());
         }
-      } 
+      }
     );
     progress.setValue(progressCount++);
 
@@ -441,7 +441,7 @@ public class OOPS extends JFrame
 
     theDrawingFrame = drawingFrame;
 
-    theDesktopPane.add(drawingFrame);   
+    theDesktopPane.add(drawingFrame);
 
     drawingFrame.addInternalFrameListener
     (
@@ -486,7 +486,7 @@ public class OOPS extends JFrame
           theLayerFrame.requestFocusInWindow();
         }
       }
-    ); 
+    );
     drawingFrame.requestFocusInWindow();
     theDrawingFrame.moveToFront();
     theDrawingArea.repaint();

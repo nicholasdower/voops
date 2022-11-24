@@ -131,7 +131,7 @@ public class TextToolbar extends JPanel
     JPanel leftTopPanel = new JPanel();
            leftTopPanel.setLayout(new BoxLayout(leftTopPanel,BoxLayout.X_AXIS));
     leftTopPanel.add(sliderPanel);
- 
+
     JPanel stylePanel = new JPanel(new GridLayout(1,0));
            stylePanel.add(theBoldBox);
            stylePanel.add(theItalicBox);
@@ -180,7 +180,7 @@ public class TextToolbar extends JPanel
     theText.setFont(getFont().deriveFont(theTextFontSize));
     theText.revalidate();
   }
- 
+
   public Font getFont()
   {
     if( theBoldBox == null || theItalicBox == null || theFontBox == null )

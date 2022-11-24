@@ -21,7 +21,7 @@ public class ScriptTool {
 		for (int i=0;i < theToolButtonArray.length;i++) {
 			if ( theToolButtonArray[i] instanceof OOPSButton) {
 	    		OOPSButton ob = (OOPSButton) theToolButtonArray[i];
-	    		theToolButtonList.put(ob.getToolTipText(), ob); 
+	    		theToolButtonList.put(ob.getToolTipText(), ob);
 	    	}
 	    }
 	}

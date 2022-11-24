@@ -413,7 +413,7 @@ public class TextureChooser extends JPanel
   }
 
   private void setType()
-  { 
+  {
     if( thePaint != null )
     {
       if( theStretchButton.isSelected() )

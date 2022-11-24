@@ -88,7 +88,7 @@ public class RotatePanel extends JPanel
     );
 
     theStroke = new BasicStroke(2f);
-  
+
     theListeners = new Vector();
 
   }
@@ -167,9 +167,9 @@ public class RotatePanel extends JPanel
 
     theSpinner = (GeneralPath)AffineTransform.getRotateInstance(theRotation,theCenter.x,theCenter.y).createTransformedShape(theSpinner);
 
-    
+
     if( theArcDirection == 0 )
-    { 
+    {
       theArcExtent = Math.toDegrees(theCurrentDirection-theArcStart);
       if( theArcExtent%360 == 0 )
       {
@@ -189,7 +189,7 @@ public class RotatePanel extends JPanel
         theArcDirection = 1;
     }
     else
-    { 
+    {
       if( oldDirection > theArcStart && theCurrentDirection < theArcStart )
       {
         if( Math.abs(oldDirection-theCurrentDirection) < ANG180 )
@@ -224,7 +224,7 @@ public class RotatePanel extends JPanel
       else
         theArcExtent = 360 + Math.toDegrees(theCurrentDirection-theArcStart);
     }
-   
+
     if( theArcExtent%360 == 0 )
       theArcDirection = 0;
 
@@ -254,7 +254,7 @@ public class RotatePanel extends JPanel
   public boolean isResizing()
   {
     return isResizing;
-  } 
+  }
 
   public void setRotation( double aRotation )
   {

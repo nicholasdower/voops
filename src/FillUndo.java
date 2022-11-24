@@ -32,7 +32,7 @@ public class FillUndo extends Undo implements Serializable
     {
       theFillPaint   = theShape.getFillPaint();
     }
-    theStrokePaint = theShape.getDrawPaint(); 
+    theStrokePaint = theShape.getDrawPaint();
 
     double zoom = theShape.getZoom();
     theShape.zoomStroke(1);
@@ -40,7 +40,7 @@ public class FillUndo extends Undo implements Serializable
     theStroke = new BasicStroke(theStroke.getLineWidth(),theStroke.getEndCap(),theStroke.getLineJoin(),theStroke.getMiterLimit(),theStroke.getDashArray(),theStroke.getDashPhase());
     theShape.zoomStroke(zoom*zoom);
   }
- 
+
   public void undo()
   {
     Paint tempFill = null;

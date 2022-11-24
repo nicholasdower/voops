@@ -29,7 +29,7 @@ public class FontComboBox extends JComboBox
   }
 
   public static Vector findFonts()
-  { 
+  {
     String[] fontNames = GraphicsEnvironment.getLocalGraphicsEnvironment().getAvailableFontFamilyNames();
 
     theFonts = new Vector(fontNames.length);

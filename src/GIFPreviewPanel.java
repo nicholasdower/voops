@@ -44,7 +44,7 @@ public class GIFPreviewPanel extends JLabel implements Runnable
       theThread.start();
     }
   }
- 
+
   public void paint( Graphics g )
   {
     g.setColor(getBackground());

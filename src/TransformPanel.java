@@ -51,7 +51,7 @@ public class TransformPanel extends JPanel
     theMoveUpALayerButton   = new OOPSButton("BigMoveUpALayer.png","Move Up A Layer");
     theFlipHorizontalButton = new OOPSButton("BigFlipHorizontal.png","Flip Horizontal");
     theFlipVerticalButton   = new OOPSButton("BigFlipVertical.png","Flip Vertical");
- 
+
     ActionListener al = new ActionListener()
     {
       public void actionPerformed( ActionEvent e )

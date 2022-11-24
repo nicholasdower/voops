@@ -16,8 +16,8 @@ public class AngleAverager
 
   public static double averageAngles(double anAngle0, double anAngle1, double aPercentage )
   {
-    anAngle0 %= ANG360; 
-    anAngle1 %= ANG360; 
+    anAngle0 %= ANG360;
+    anAngle1 %= ANG360;
 
     if( anAngle0 == anAngle1 )
       return anAngle0;

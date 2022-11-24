@@ -27,14 +27,14 @@ public class HSLRGBConverter
     return (new Color(r,g,b)).getRGB();
   }
 
-  private static float HUEtoRGB(float m1, float m2, float h)    
+  private static float HUEtoRGB(float m1, float m2, float h)
   {
-    if (h < 0f)        
+    if (h < 0f)
     {
       h += 1f;
     }
     if (h > 1f)
-    {            
+    {
       h -= 1f;
     }
     if (h * 6f < 1f)
@@ -59,7 +59,7 @@ public class HSLRGBConverter
   }
   public static float[] RGBtoHSL(int R, int G, int B)
   {
-    int cMax, cMin; 
+    int cMax, cMin;
     float H, S, L;
     float Rdelta, Gdelta, Bdelta;
 
@@ -91,14 +91,14 @@ public class HSLRGBConverter
         H = Bdelta - Gdelta;
       else if (G == cMax)
         H = (HMAX/3) + Rdelta - Bdelta;
-      else // B == cMax 
+      else // B == cMax
         H = ((2*HMAX)/3) + Gdelta - Rdelta;
 
       if (H < 0)
         H += HMAX;
       if (H > HMAX)
         H -= HMAX;
-      }  
+      }
 
     float[] returnArray = new float[3];
     returnArray[0] = H;
@@ -107,7 +107,7 @@ public class HSLRGBConverter
 
     return returnArray;
   }
-  
+
   public static int getMaxHue()
   {
     return HMAX;

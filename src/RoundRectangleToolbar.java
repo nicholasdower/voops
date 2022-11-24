@@ -30,7 +30,7 @@ public class RoundRectangleToolbar extends JPanel
   public RoundRectangleToolbar()
   {
     theAspectRatioToolbar = new AspectRatioToolbar();
-    
+
     DocumentListener angleListener = new DocumentListener()
     {
       public void changedUpdate( DocumentEvent e){updateAngle();}
@@ -102,7 +102,7 @@ public class RoundRectangleToolbar extends JPanel
     theAspectRatioToolbar.setTool(aTool);
     theTool = aTool;
     updateAngle();
-  } 
+  }
 
   public void setStatus( double aWidth, double aHeight )
   {

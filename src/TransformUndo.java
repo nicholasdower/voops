@@ -20,7 +20,7 @@ public class TransformUndo extends Undo
     theShapes = someShapes;
     theTransform = new AffineTransform();
   }
- 
+
   public void transform( AffineTransform aTransform )
   {
     theTransform.concatenate(aTransform);

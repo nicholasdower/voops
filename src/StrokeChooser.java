@@ -44,7 +44,7 @@ public class StrokeChooser extends JPanel
 
   private JSpinner theMiterLimitSpinner;
   private JLabel   theMiterLimitLabel;
-  
+
   private SliderSpinnerCombo theWidthSliderSpinner;
 
   private JSpinner theOffsetSpinner;
@@ -115,7 +115,7 @@ public class StrokeChooser extends JPanel
 
     theDashLabel = new JLabel("Dash:");
     theDashField = new JTextField("");
- 
+
     theDashField.getDocument().addDocumentListener
     (
       new DocumentListener()
@@ -328,7 +328,7 @@ public class StrokeChooser extends JPanel
   {
     if( changeOccuring )
       return;
- 
+
     changeOccuring = true;
 
     float width =  (float)(theWidthSliderSpinner.getValue());
@@ -424,7 +424,7 @@ public class StrokeChooser extends JPanel
   public void setStroke( BasicStroke aStroke )
   {
     changeOccuring = true;
-    
+
     theWidthSliderSpinner.setValue((int)(aStroke.getLineWidth()*10));
 
     int end = aStroke.getEndCap();

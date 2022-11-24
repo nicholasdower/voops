@@ -47,7 +47,7 @@ public class Layer implements Serializable
   {
     isVisible = aBool;
   }
- 
+
   public String getName()
   {
     return theName;
@@ -169,7 +169,7 @@ public class Layer implements Serializable
         currentShape = theShapes.remove(loc);
         theShapes.insertElementAt(currentShape,loc+1);
       }
-    } 
+    }
   }
 
   public void moveBack( Vector someShapes )
@@ -197,7 +197,7 @@ public class Layer implements Serializable
         currentShape = theShapes.remove(loc);
         theShapes.insertElementAt(currentShape,loc-1);
       }
-    } 
+    }
   }
 
   public void removeShape( Object aShape )
@@ -227,7 +227,7 @@ public class Layer implements Serializable
   {
     for( int i = 0 ; i < theShapes.size() ; i++ )
       ((PaintableShape)theShapes.get(i)).setZoom(aFactor);
-  } 
+  }
 
   public void clear()
   {

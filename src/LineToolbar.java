@@ -28,7 +28,7 @@ public class LineToolbar extends JPanel
   private JLabel             theAngleLabel;
 
   public LineToolbar()
-  { 
+  {
     DocumentListener listener = new DocumentListener()
     {
       public void changedUpdate( DocumentEvent e){limit();}

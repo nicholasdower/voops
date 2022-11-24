@@ -84,7 +84,7 @@ public class BevelChooser extends EffectChooser
           theDarkStepsField.setEnabled(false);
           theDarkAlphaField.setEnabled(false);
         }
-        else 
+        else
         {
           theDarkSizeField.setEnabled(true);
           theDarkStepsField.setEnabled(true);
@@ -107,7 +107,7 @@ public class BevelChooser extends EffectChooser
 
     GridBagLayout layout = new GridBagLayout();
     getContentPanel().setLayout(layout);
- 
+
     GridBagConstraints gbc;
 
     JPanel holder = new JPanel();

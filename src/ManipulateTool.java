@@ -76,7 +76,7 @@ public class ManipulateTool extends Tool
       drawControls();
       getDrawingArea().repaint();
     }
-  } 
+  }
 
   public void mouseClicked( MouseEvent e )
   {
@@ -86,7 +86,7 @@ public class ManipulateTool extends Tool
       if( theCurrentShape != null )
       {
         getDrawingArea().setUndoPoint(new CompleteUndo(getDrawingArea()));
- 
+
         PaintableShape holder = theCurrentShape.get();
         getDrawingArea().replaceShape(theCurrentShape,holder);
         theCurrentShape = holder;
@@ -100,7 +100,7 @@ public class ManipulateTool extends Tool
         theManipulationSet = new ManipulationSet(newShape,(float)(theSize));
         theManipulationSet.setMirrored(theIsMirrored);
         theManipulationSet.setManipulators(theWhichManipulators[0],theWhichManipulators[1],theWhichManipulators[2]);
-        
+
         theWindingRule = theManipulationSet.getWindRule();
         theToolbar.setWindRule(theWindingRule);
 

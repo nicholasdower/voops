@@ -175,7 +175,7 @@ public class ManipulateToolbar extends JPanel
       return;
 
     theTool.setMirrored(theMirrorBox.isSelected());
-  } 
+  }
 
   public void setManipulators()
   {
@@ -183,7 +183,7 @@ public class ManipulateToolbar extends JPanel
       return;
 
     theTool.setManipulators(theSmallBox.isSelected(),theMidBox.isSelected(),theBigBox.isSelected());
-  } 
+  }
 
   public void setTool( ManipulateTool aTool )
   {

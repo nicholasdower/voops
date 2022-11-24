@@ -52,7 +52,7 @@ public class TrianglePanel extends JPanel
       theY = 4;
     else if( y > getHeight()-3 )
       theY = getHeight()-3;
-    else 
+    else
       theY = y;
 
     theLum = ((float)(theY-4))/((float)(theHeight-7));

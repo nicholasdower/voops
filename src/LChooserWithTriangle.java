@@ -48,7 +48,7 @@ public class LChooserWithTriangle extends JPanel
       {
         public void mouseDragged( MouseEvent e )
         {
-          theTriangle.setPointer(e.getY()); 
+          theTriangle.setPointer(e.getY());
           notifyListeners();
         }
       }
@@ -78,7 +78,7 @@ public class LChooserWithTriangle extends JPanel
         }
       }
     );
- 
+
     GridBagLayout gridBagLayout = new GridBagLayout();
     this.setLayout(gridBagLayout);
 
@@ -112,20 +112,20 @@ public class LChooserWithTriangle extends JPanel
     theChangeListeners = new Vector();
   }
 
-  public void setColor( Color aColor ) 
+  public void setColor( Color aColor )
   {
     theLChooser.setColor(aColor);
-    //theTriangle.setColor(aColor); 
+    //theTriangle.setColor(aColor);
   }
 
-  public Color getColor() 
+  public Color getColor()
   {
     Color c = theLChooser.getColor();
     float[] hsl = HSLRGBConverter.RGBtoHSL(c.getRGB());
     return new Color(HSLRGBConverter.HSLtoRGB(hsl[0],hsl[1],theTriangle.getLuminance()*100));
   }
 
-  public void setColorHS( Color aColor ) 
+  public void setColorHS( Color aColor )
   {
     theLChooser.setColor(aColor);
   }

@@ -25,7 +25,7 @@ public class LayerManager implements Serializable
   private static final int MAX_UNDOS = 10;
   Vector theUndos;
   Vector theRedos;
- 
+
   public LayerManager( DrawingArea anArea )
   {
     theDrawingArea = anArea;
@@ -80,7 +80,7 @@ public class LayerManager implements Serializable
     }
     else if( currentLayer.equals(aLayer) )
     {
-      
+
     }
     else
     {
@@ -90,7 +90,7 @@ public class LayerManager implements Serializable
     if( theLayers.size() == 0 )
       theLayers.add(new Layer("Untitled"));
   }
- 
+
   public void setLayerVisible( Layer aLayer, boolean anIsVisible )
   {
     aLayer.setVisible(anIsVisible);
@@ -111,7 +111,7 @@ public class LayerManager implements Serializable
     theDrawingArea.clearDrawingArea();
     setUndoPoint(new CompleteUndo(theDrawingArea));
     theCurrentLayer = theLayers.indexOf(aLayer);
-    
+
   }
 
   public void setCurrentLayer( int aLayer )
@@ -168,7 +168,7 @@ public class LayerManager implements Serializable
     for( int i = 0 ; i < theLayers.size() ; i++ )
       shapes.add(((Layer)theLayers.get(i)).getShapes());
     return shapes;
-  }  
+  }
 
   public int indexOf( PaintableShape aShape )
   {
@@ -327,13 +327,13 @@ public class LayerManager implements Serializable
   {
     for( int i = 0 ; i < theLayers.size() ; i++ )
       ((Layer)theLayers.get(i)).scale(anXFactor,aYFactor);
-  } 
+  }
 
   public void zoom( double aFactor )
   {
     for( int i = 0 ; i < theLayers.size() ; i++ )
       ((Layer)theLayers.get(i)).zoom(aFactor);
-  } 
+  }
 
   public void clearCurrent()
   {

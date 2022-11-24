@@ -121,7 +121,7 @@ public class ResizePanel extends JPanel
     );
 
     theStroke = new BasicStroke(2f);
-  
+
     theListeners = new Vector();
 
     theResizors = new Rectangle2D.Double[8];
@@ -270,7 +270,7 @@ public class ResizePanel extends JPanel
           theCurrentResizor = 7;
         else if( theCurrentResizor == 7 )
           theCurrentResizor = 2;
-      } 
+      }
     }
 
     theCurrentXFactor = theResizedRectangle.width/oldResizedRectangle.width;

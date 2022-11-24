@@ -31,7 +31,7 @@ public class PolygonToolbar extends JPanel
       {
         public void actionPerformed(ActionEvent e)
         {
-            if( theTool == null ) 
+            if( theTool == null )
               return;
             theTool.setShouldClose(theCloseButton.isSelected());
         }

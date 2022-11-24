@@ -44,7 +44,7 @@ public class LineCreateToolbar extends JPanel
   private OOPSButton        theRayAddButton;
 
   public LineCreateToolbar()
-  { 
+  {
     theX0Field  = new JTextField("0",2);
     theY0Field  = new JTextField("0",2);
     theX1Field  = new JTextField("10",2);

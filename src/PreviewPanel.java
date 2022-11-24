@@ -29,17 +29,17 @@ public class PreviewPanel extends JPanel
 
   private void updateImage()
   {
-    BufferedImage bi = new BufferedImage(24, 24, BufferedImage.TYPE_INT_RGB); 
-    Graphics2D big = bi.createGraphics(); 
-    big.setColor(new Color(122,138,153)); 
-    big.fillRect(0,0,12,12); 
-    big.fillRect(12,12,12,12); 
-    big.setColor(new Color(238,238,238)); 
-    big.fillRect(12,0,12,12); 
-    big.fillRect(0,12,12,12); 
+    BufferedImage bi = new BufferedImage(24, 24, BufferedImage.TYPE_INT_RGB);
+    Graphics2D big = bi.createGraphics();
+    big.setColor(new Color(122,138,153));
+    big.fillRect(0,0,12,12);
+    big.fillRect(12,12,12,12);
+    big.setColor(new Color(238,238,238));
+    big.fillRect(12,0,12,12);
+    big.fillRect(0,12,12,12);
 
-    Rectangle r = new Rectangle(0,0,24,24); 
-    theBackgroundPaint = new TexturePaint(bi,r); 
+    Rectangle r = new Rectangle(0,0,24,24);
+    theBackgroundPaint = new TexturePaint(bi,r);
 
     RenderingHints rh = new RenderingHints(RenderingHints.KEY_ANTIALIASING,RenderingHints.VALUE_ANTIALIAS_ON);
                    rh.put(RenderingHints.KEY_RENDERING,RenderingHints.VALUE_RENDER_QUALITY);
@@ -50,7 +50,7 @@ public class PreviewPanel extends JPanel
 
     double rectWidth  = ((double)getWidth())/4;
     double rectHeight = (double)getHeight();
-  
+
     double thickness = Math.min(rectWidth,rectHeight)/6;
 
     Rectangle2D.Double r2D0 = new Rectangle2D.Double(0,0,rectWidth,rectHeight);

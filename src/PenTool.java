@@ -12,9 +12,9 @@ public class PenTool extends Tool implements Curveable
 {
   private SmoothPath  thePath;
   private GeneralPath theFinalPath;
- 
+
   private int thePointCount = 0;
- 
+
   private double thePadding   = 0.45;
   private double theThreshold = 14;
 

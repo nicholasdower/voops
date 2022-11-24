@@ -51,7 +51,7 @@ public class GradientChooser extends JPanel
     ChangeListener listener = new ChangeListener()
     {
       public void stateChanged( ChangeEvent e )
-      { 
+      {
         thePaint = theGradient.getPaint();
         setType();
         notifyListeners();
@@ -179,7 +179,7 @@ public class GradientChooser extends JPanel
   {
     theGradient.setPaint(aPaint);
 
-    
+
     if( aPaint.getType() == TransformableTexturePaint.TYPE_STRETCH )
     {
       theStretchButton.setSelected(true);
@@ -198,7 +198,7 @@ public class GradientChooser extends JPanel
   }
 
   private void setType()
-  { 
+  {
     if( thePaint != null )
     {
       if( theStretchButton.isSelected() )

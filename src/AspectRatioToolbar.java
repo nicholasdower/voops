@@ -41,7 +41,7 @@ public class AspectRatioToolbar extends JPanel
   public AspectRatioToolbar()
   {
     theStatus = new AspectRatioStatusToolbar();
-    
+
     DocumentListener ratioListener = new DocumentListener()
     {
       public void changedUpdate( DocumentEvent e){updateRatio();}
@@ -85,7 +85,7 @@ public class AspectRatioToolbar extends JPanel
       }
     );
 
-    
+
     JPanel ratioPanel = new JPanel();
     ratioPanel.setLayout(new BoxLayout(ratioPanel,BoxLayout.X_AXIS));
     ratioPanel.add(thePreserveButton);

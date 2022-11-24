@@ -31,7 +31,7 @@ public class SliderSpinnerCombo extends JPanel
   public SliderSpinnerCombo(int aMin, int aMax, int aValue, String aLabel)
   {
     theChangeListeners = new Vector();
- 
+
     Integer[] o = new Integer[(aMax-aMin)+1];
     for( int i = 0 ; i < (aMax-aMin)+1 ; i++ )
     {
@@ -43,7 +43,7 @@ public class SliderSpinnerCombo extends JPanel
     theSpinner.setValue(o[aValue]);
     theSpinner.setFont(new Font("Times",Font.BOLD,12));
     theSlider = new JSlider(aMin,aMax,aValue);
-  
+
     theSpinner.addChangeListener
     (
       new ChangeListener()

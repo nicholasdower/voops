@@ -32,24 +32,24 @@ public class OOPSToolPanel extends JPanel
   private OOPS theOOPS;
   private Tool theCurrentTool;
   private TexturePaint theTexturePaint;
- 
+
   private JTextArea theStatus;
 
   public OOPSToolPanel(OOPS anOOPS)
   {
     theOOPS = anOOPS;
 
-    BufferedImage bi = new BufferedImage(10, 10, BufferedImage.TYPE_INT_ARGB); 
-    Graphics2D big = bi.createGraphics(); 
-    big.setColor(new Color(0,0,0,110)); 
-    big.fillRect(0,0,5,5); 
-    big.fillRect(5,5,5,5); 
-    big.setColor(new Color(255,255,255,110)); 
-    big.fillRect(5,0,5,5); 
-    big.fillRect(0,5,5,5); 
+    BufferedImage bi = new BufferedImage(10, 10, BufferedImage.TYPE_INT_ARGB);
+    Graphics2D big = bi.createGraphics();
+    big.setColor(new Color(0,0,0,110));
+    big.fillRect(0,0,5,5);
+    big.fillRect(5,5,5,5);
+    big.setColor(new Color(255,255,255,110));
+    big.fillRect(5,0,5,5);
+    big.fillRect(0,5,5,5);
 
-    Rectangle r = new Rectangle(0,0,10,10); 
-    theTexturePaint = new TexturePaint(bi,r); 
+    Rectangle r = new Rectangle(0,0,10,10);
+    theTexturePaint = new TexturePaint(bi,r);
 
     OOPSButton penButton             = new OOPSButton("Pen.png","Pencil");
     OOPSButton lineButton            = new OOPSButton("Line.png","Line");
@@ -69,9 +69,9 @@ public class OOPSToolPanel extends JPanel
     OOPSButton fillerButton          = new OOPSButton("Fill.png","Fill");
     OOPSButton clearButton           = new OOPSButton("Clear.png","Clear");
     OOPSButton zoomInButton          = new OOPSButton("ZoomIn.png","Zoom In");
-    OOPSButton zoomOutButton         = new OOPSButton("ZoomOut.png","Zoom Out"); 
-    OOPSButton shapeGetterButton     = new OOPSButton("ShapeChooser.png","Get Fill/Stroke"); 
-    OOPSButton screenColorButton     = new OOPSButton("ScreenChooser.png","Get ScreenColor"); 
+    OOPSButton zoomOutButton         = new OOPSButton("ZoomOut.png","Zoom Out");
+    OOPSButton shapeGetterButton     = new OOPSButton("ShapeChooser.png","Get Fill/Stroke");
+    OOPSButton screenColorButton     = new OOPSButton("ScreenChooser.png","Get ScreenColor");
 
     penButton.addActionListener
     (
@@ -90,7 +90,7 @@ public class OOPSToolPanel extends JPanel
           theCurrentTool = new PenTool(theOOPS.getDrawingArea(),PaintableShape.TYPE_DRAW);
 
           theOOPS.setToolbar(theCurrentTool.getToolbar(),((OOPSButton)e.getSource()).getIcon(),"Pen Tool");
- 
+
 
           theCurrentTool.setDrawPaint(theOOPS.getDrawPaint());
           theCurrentTool.setFillPaint(theOOPS.getFillPaint());
@@ -498,7 +498,7 @@ public class OOPSToolPanel extends JPanel
           theOOPS.getDrawingArea().setUndoPoint(new CompleteUndo(theOOPS.getDrawingArea()));
 
           theOOPS.getDrawingArea().removeMouseListener(theCurrentTool);
-          theOOPS.getDrawingArea().removeMouseMotionListener(theCurrentTool); 
+          theOOPS.getDrawingArea().removeMouseMotionListener(theCurrentTool);
 
           if( theCurrentTool != null )
             theCurrentTool.loseControl();
@@ -668,7 +668,7 @@ public class OOPSToolPanel extends JPanel
     gbc.ipady = 3;
     gbc.insets = new Insets(0,3,3,1);
     gbc.anchor = GridBagConstraints.CENTER;
-    gridBagLayout.setConstraints(polygonPenButton, gbc);    
+    gridBagLayout.setConstraints(polygonPenButton, gbc);
     this.add(polygonPenButton);
 
     gbc = new GridBagConstraints();
@@ -680,7 +680,7 @@ public class OOPSToolPanel extends JPanel
     gbc.ipady = 3;
     gbc.insets = new Insets(0,1,3,3);
     gbc.anchor = GridBagConstraints.CENTER;
-    gridBagLayout.setConstraints(smoothPolygonButton, gbc);    
+    gridBagLayout.setConstraints(smoothPolygonButton, gbc);
     this.add(smoothPolygonButton);
 
     gbc = new GridBagConstraints();
@@ -692,7 +692,7 @@ public class OOPSToolPanel extends JPanel
     gbc.ipady = 3;
     gbc.insets = new Insets(0,3,3,1);
     gbc.anchor = GridBagConstraints.CENTER;
-    gridBagLayout.setConstraints(cubicCurveButton, gbc);  
+    gridBagLayout.setConstraints(cubicCurveButton, gbc);
     this.add(cubicCurveButton);
 
     gbc = new GridBagConstraints();

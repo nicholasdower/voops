@@ -31,7 +31,7 @@ public class IntHexSliderSpinnerCombo extends JPanel
     theSpinner = new IntHexSpinner();
     theSpinner.setFont(new Font("Times",Font.BOLD,12));
     theSlider = new JSlider(0,255,0);
-  
+
     theSpinner.addChangeListener
     (
       new ChangeListener()
@@ -127,12 +127,12 @@ public class IntHexSliderSpinnerCombo extends JPanel
   public void setHex()
   {
     theSpinner.setHex();
-  } 
+  }
 
   public void setInt()
   {
     theSpinner.setInt();
-  } 
+  }
 
   public void addChangeListener( ChangeListener aListener )
   {

@@ -35,7 +35,7 @@ public class CompleteUndo extends Undo
 
     getDrawingArea().getLayerManager().setLayers(theLayers);
     getDrawingArea().getLayerManager().setCurrentLayer(theCurrentLayer);
- 
+
     theLayers       = oldLayers;
     theCurrentLayer = currentLayer;
 

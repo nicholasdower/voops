@@ -24,7 +24,7 @@ public class TranslateUndo extends Undo
     theXFactor += anXFactor;
     theYFactor += aYFactor;
   }
- 
+
   public void undo()
   {
     double oldZoom = getDrawingArea().getZoom();

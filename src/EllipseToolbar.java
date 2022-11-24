@@ -38,7 +38,7 @@ public class EllipseToolbar extends JPanel
   public EllipseToolbar()
   {
     theAspectRatioToolbar = new AspectRatioToolbar();
-    
+
     DocumentListener angleListener = new DocumentListener()
     {
       public void changedUpdate( DocumentEvent e){updateAngle();}
@@ -60,7 +60,7 @@ public class EllipseToolbar extends JPanel
     anglePanel.add(theAngleLabel);
     anglePanel.add(theAngleField);
 
- 
+
     ActionListener typeListener = new ActionListener()
     {
       public void actionPerformed( ActionEvent e )
@@ -158,7 +158,7 @@ public class EllipseToolbar extends JPanel
     theAspectRatioToolbar.setTool(aTool);
     theTool = aTool;
     updateAngle();
-  } 
+  }
 
   public void setStatus( double aWidth, double aHeight )
   {

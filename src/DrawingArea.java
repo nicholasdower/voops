@@ -46,7 +46,7 @@ public class DrawingArea extends JPanel
 
   private int theImageWidth;
   private int theImageHeight;
- 
+
   private OOPS theOOPS;
 
   private RenderingHints theRenderingHints;
@@ -70,7 +70,7 @@ public class DrawingArea extends JPanel
           repaint();
         }
       }
-    ); 
+    );
 
     this.addMouseMotionListener
     (
@@ -88,7 +88,7 @@ public class DrawingArea extends JPanel
             theOOPS.setStatus("X: " + (int)(e.getX()/theZoomFactor) + "\n" + "Y: " + (int)(e.getY()/theZoomFactor));
         }
       }
-    ); 
+    );
 
     this.addMouseListener
     (
@@ -99,7 +99,7 @@ public class DrawingArea extends JPanel
           theOOPS.setStatus("");
         }
       }
-    ); 
+    );
   }
 
   public void initialize()
@@ -317,7 +317,7 @@ public class DrawingArea extends JPanel
   }
 
   public void addShape( PaintableShape aShape )
-  { 
+  {
     theLayerManager.addShape(aShape);
     aShape.setZoom(theZoomFactor);
   }

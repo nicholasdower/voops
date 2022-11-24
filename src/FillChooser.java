@@ -92,7 +92,7 @@ public class FillChooser extends JTabbedPane
         if( paint.getKind() == TransformableTexturePaint.KIND_GRADIENT )
         {
           theGradientChooser.setPaint(paint);
- 
+
           setSelectedIndex(1);
         }
         else if( paint.getKind() == TransformableTexturePaint.KIND_RADIAL )

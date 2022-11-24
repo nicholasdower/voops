@@ -24,22 +24,22 @@ public class OOPSCursors
 
   private static int index = 0;
   public static Cursor PEN             = theCursors[index++];
-  public static Cursor LINE            = theCursors[index++]; 
-  public static Cursor RECTANGLE       = theCursors[index++]; 
-  public static Cursor ROUND_RECTANGLE = theCursors[index++]; 
-  public static Cursor ELLIPSE         = theCursors[index++]; 
-  public static Cursor POLYGON         = theCursors[index++]; 
-  public static Cursor POLYGON_PEN     = theCursors[index++]; 
-  public static Cursor SMOOTH_POLYGON  = theCursors[index++]; 
-  public static Cursor CUBIC_CURVE     = theCursors[index++]; 
-  public static Cursor QUAD_CURVE      = theCursors[index++]; 
-  public static Cursor TEXT            = theCursors[index++]; 
-  public static Cursor MOVE_UP         = theCursors[index++]; 
-  public static Cursor MOVE_DOWN       = theCursors[index++]; 
-  public static Cursor SUB_SELECT      = theCursors[index++]; 
-  public static Cursor SUB_SELECT_FREE = theCursors[index++]; 
-  public static Cursor FILL            = theCursors[index++]; 
-  public static Cursor GETTER          = theCursors[index++]; 
+  public static Cursor LINE            = theCursors[index++];
+  public static Cursor RECTANGLE       = theCursors[index++];
+  public static Cursor ROUND_RECTANGLE = theCursors[index++];
+  public static Cursor ELLIPSE         = theCursors[index++];
+  public static Cursor POLYGON         = theCursors[index++];
+  public static Cursor POLYGON_PEN     = theCursors[index++];
+  public static Cursor SMOOTH_POLYGON  = theCursors[index++];
+  public static Cursor CUBIC_CURVE     = theCursors[index++];
+  public static Cursor QUAD_CURVE      = theCursors[index++];
+  public static Cursor TEXT            = theCursors[index++];
+  public static Cursor MOVE_UP         = theCursors[index++];
+  public static Cursor MOVE_DOWN       = theCursors[index++];
+  public static Cursor SUB_SELECT      = theCursors[index++];
+  public static Cursor SUB_SELECT_FREE = theCursors[index++];
+  public static Cursor FILL            = theCursors[index++];
+  public static Cursor GETTER          = theCursors[index++];
 
   private OOPSCursors(){}
 
@@ -76,7 +76,7 @@ public class OOPSCursors
       System.out.println(he);
       return null;
     }
-    
+
     for( int i = 0 ; i < NUM_OF_CURS ; i++ )
     {
       Image image = null;
@@ -87,7 +87,7 @@ public class OOPSCursors
       sizedImage.getGraphics().drawImage(image,0,0,null);
       cursors[i] = Toolkit.getDefaultToolkit().createCustomCursor(sizedImage,points[i],names[i]);
     }
-    
+
     return cursors;
   }
 }

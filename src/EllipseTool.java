@@ -70,7 +70,7 @@ public class EllipseTool extends Tool implements AspectRatioable
     setIsStarted(false);
   }
 
-  
+
 
   private void drawOvalFill(int x, int y)
   {
@@ -138,7 +138,7 @@ public class EllipseTool extends Tool implements AspectRatioable
         }
         else
         {
-          if( theAngle >= 360 ) 
+          if( theAngle >= 360 )
             getShape().setShape(new Ellipse2D.Double(x,theStartPoint.y,theStartPoint.x-x,y-theStartPoint.y));
           else
             getShape().setShape(new Arc2D.Double(x,theStartPoint.y,theStartPoint.x-x,y-theStartPoint.y,theStart,theAngle,theArcType));
@@ -167,7 +167,7 @@ public class EllipseTool extends Tool implements AspectRatioable
             width  = theAspectRatio*height;
           }
 
-          if( theAngle >= 360 ) 
+          if( theAngle >= 360 )
             getShape().setShape(new Ellipse2D.Double(theStartPoint.x,theStartPoint.y-height,width,height));
           else
             getShape().setShape(new Arc2D.Double(theStartPoint.x,theStartPoint.y-height,width,height,theStart,theAngle,theArcType));

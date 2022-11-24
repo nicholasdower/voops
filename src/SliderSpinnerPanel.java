@@ -53,7 +53,7 @@ public class SliderSpinnerPanel extends JPanel
       {
         if( isChanging )
           return;
- 
+
         isChanging = true;
         if( e.getSource().equals(theRGBAControls[0]) || e.getSource().equals(theRGBAControls[1]) || e.getSource().equals(theRGBAControls[2]) )
         {
@@ -102,7 +102,7 @@ public class SliderSpinnerPanel extends JPanel
     gbc.anchor = GridBagConstraints.PAGE_END;
     gbc.fill = GridBagConstraints.HORIZONTAL;
     gridBagLayout.setConstraints(theHSLControls[0], gbc);
-    HSLPanel.add(theHSLControls[0]);   
+    HSLPanel.add(theHSLControls[0]);
 
     gbc = new GridBagConstraints();
     gbc.gridx = 0;
@@ -113,7 +113,7 @@ public class SliderSpinnerPanel extends JPanel
     gbc.anchor = GridBagConstraints.CENTER;
     gbc.fill = GridBagConstraints.HORIZONTAL;
     gridBagLayout.setConstraints(theHSLControls[1], gbc);
-    HSLPanel.add(theHSLControls[1]);   
+    HSLPanel.add(theHSLControls[1]);
 
     gbc = new GridBagConstraints();
     gbc.gridx = 0;
@@ -163,7 +163,7 @@ public class SliderSpinnerPanel extends JPanel
     gbc.insets = new Insets(2,0,2,0);
     gbc.anchor = GridBagConstraints.LAST_LINE_END;
     gridBagLayout2.setConstraints(theHEXINTButton, gbc);
-    RGBAPanel.add(theHEXINTButton); 
+    RGBAPanel.add(theHEXINTButton);
 
     gbc = new GridBagConstraints();
     gbc.gridx = 0;
@@ -174,7 +174,7 @@ public class SliderSpinnerPanel extends JPanel
     gbc.anchor = GridBagConstraints.PAGE_END;
     gbc.fill = GridBagConstraints.HORIZONTAL;
     gridBagLayout2.setConstraints(theRGBAControls[0], gbc);
-    RGBAPanel.add(theRGBAControls[0]);   
+    RGBAPanel.add(theRGBAControls[0]);
 
     gbc = new GridBagConstraints();
     gbc.gridx = 0;
@@ -185,7 +185,7 @@ public class SliderSpinnerPanel extends JPanel
     gbc.anchor = GridBagConstraints.CENTER;
     gbc.fill = GridBagConstraints.HORIZONTAL;
     gridBagLayout2.setConstraints(theRGBAControls[1], gbc);
-    RGBAPanel.add(theRGBAControls[1]);   
+    RGBAPanel.add(theRGBAControls[1]);
 
     gbc = new GridBagConstraints();
     gbc.gridx = 0;

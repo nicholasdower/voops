@@ -230,7 +230,7 @@ public class PaintableShape implements Serializable
     BufferedImage  thisImage = new BufferedImage((int)Math.ceil(theseBounds.width),(int)Math.ceil(theseBounds.height),BufferedImage.TYPE_INT_ARGB);
     Graphics2D     g2D       = thisImage.createGraphics();
     g2D.addRenderingHints(someHints);
- 
+
     thisShape.transform(AffineTransform.getTranslateInstance(-theseBounds.x,-theseBounds.y));
     thisShape.paint(g2D);
     g2D.dispose();
@@ -238,7 +238,7 @@ public class PaintableShape implements Serializable
     thisShape.setStroke(new BasicStroke(0f));
     thisShape.setDrawPaint(new Color(0,0,0,0));
     thisShape.setShape(new Rectangle2D.Double(theseBounds.x-.5,theseBounds.y-.5,theseBounds.width+1,theseBounds.height+1));
- 
+
     TransformableTexturePaint newPaint = new TransformableTexturePaint(thisImage,theseBounds,TransformableTexturePaint.KIND_TEXTURE);
     newPaint.setType(TransformableTexturePaint.TYPE_STRETCH);
     thisShape.setFillPaint(newPaint);
@@ -249,7 +249,7 @@ public class PaintableShape implements Serializable
   public void zoomStroke( double aZoomFactor )
   {
     float factor = (float)(aZoomFactor/theZoomFactor);
-    
+
     float  width = theStroke.getLineWidth()*factor;
     int    cap   = theStroke.getEndCap();
     int    join  = theStroke.getLineJoin();
@@ -420,12 +420,12 @@ public class PaintableShape implements Serializable
   }
 
   public void setGroup( Vector aGroup )
-  { 
+  {
     theGroup = aGroup;
   }
 
   public void addToGroup( Vector aGroup )
-  { 
+  {
     if( aGroup == null )
       return;
 
@@ -435,7 +435,7 @@ public class PaintableShape implements Serializable
   }
 
   public Vector getGroup()
-  { 
+  {
     return theGroup;
   }
 

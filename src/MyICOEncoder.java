@@ -13,7 +13,7 @@ import java.awt.Color;                        //Each pixels Color must be determ
 import java.util.Vector;                      //A Vector is used to hold all of the Colors in a particular Image
 import java.awt.image.Raster;                 //A raster is used to get A, R, G, and B samples from each pixel
 import java.awt.image.ColorModel;             //A ColorModel is used to determine the bits per pixel (bpp) for each Image
-import java.awt.image.BufferedImage;          //ColorModels and Rasters can only be used on BufferedImages. Each image must be drawn (drawImage()) onto a BufferedImage 
+import java.awt.image.BufferedImage;          //ColorModels and Rasters can only be used on BufferedImages. Each image must be drawn (drawImage()) onto a BufferedImage
 import javax.imageio.ImageTypeSpecifier;      //An ImageTypeSpecifier is gotten from a BufferedImage then used to get a ColorModel Object
 
   /**
@@ -23,7 +23,7 @@ import javax.imageio.ImageTypeSpecifier;      //An ImageTypeSpecifier is gotten 
   {
     /**
      *  An Icon can contain many images. This is the number
-     *  of images that will be found in this Icon. 
+     *  of images that will be found in this Icon.
      */
     private int               theNumOfImages;
 
@@ -126,13 +126,13 @@ import javax.imageio.ImageTypeSpecifier;      //An ImageTypeSpecifier is gotten 
      *                  Reserved    (1 byte ), Not used (always 0)
      *                  Planes      (2 bytes), Always 1 for Icons
      *                  BitCount    (2 bytes), Number of bits per pixel (1 for monochrome, 4 for 16 colors, 8 for 256 colors, 24 for true colors, 32 for true colors + alpha channel)
-     *                  ImageSize   (4 bytes), Length of resource in bytes 
+     *                  ImageSize   (4 bytes), Length of resource in bytes
      *                  ImageOffset (4 bytes), start of the image in the file.
      */
     private void writeIconDirectoryEntries() throws Exception
     {
       //Used to get Pixel Colors
-        BufferedImage curImage        = null; 
+        BufferedImage curImage        = null;
 
       try
       {
@@ -170,7 +170,7 @@ import javax.imageio.ImageTypeSpecifier;      //An ImageTypeSpecifier is gotten 
             if( numberOfColors == 0 )      //0 means there are more than 256 colors
             {
                                            //do nothing
-            }                             
+            }
             else if( numberOfColors > 0 && numberOfColors <= 2 )    //Monochrome
             {
               numberOfColors = 2;
@@ -180,10 +180,10 @@ import javax.imageio.ImageTypeSpecifier;      //An ImageTypeSpecifier is gotten 
             {
               numberOfColors = 16;
               bitCount       = 4;
-            } 
+            }
             else if( numberOfColors > 16 && numberOfColors <= 256 ) //256 Colors
             {
-              numberOfColors = 256; 
+              numberOfColors = 256;
               bitCount       = 8;
             }
 
@@ -210,7 +210,7 @@ import javax.imageio.ImageTypeSpecifier;      //An ImageTypeSpecifier is gotten 
           theStream.writeByte(numberOfColors); //ColorCount
           theStream.writeByte(0);              //Not used
           theStream.writeShort(1);             //Planes
-          theStream.writeShort(bitCount);     
+          theStream.writeShort(bitCount);
 
           //Determine size of this image
 
@@ -219,7 +219,7 @@ import javax.imageio.ImageTypeSpecifier;      //An ImageTypeSpecifier is gotten 
 
             //Determine the number of bytes needed per row for the XOR Map
               int Xbytes = (int)((((float)width*bitCount)%8 == 0)?(((float)width*bitCount)/8):(((float)width*bitCount)/8)+1);
-  
+
               if( (float)Xbytes%4 == 0)         //Xbytes must be divisable by 4
               {}
               else                              //If not add padding
@@ -284,7 +284,7 @@ import javax.imageio.ImageTypeSpecifier;      //An ImageTypeSpecifier is gotten 
     private void writeImages()
     {
       //Used to get Pixel Colors
-        BufferedImage curImage        = null; 
+        BufferedImage curImage        = null;
         Raster        curImageRaster  = null;
 
       try
@@ -317,7 +317,7 @@ import javax.imageio.ImageTypeSpecifier;      //An ImageTypeSpecifier is gotten 
             if( numberOfColors == 0 )      //0 means there are more than 256 colors
             {
                                            //do nothing
-            }                            
+            }
             else if( numberOfColors > 0 && numberOfColors <= 2 )    //Monochrome
             {
               numberOfColors = 2;
@@ -327,10 +327,10 @@ import javax.imageio.ImageTypeSpecifier;      //An ImageTypeSpecifier is gotten 
             {
               numberOfColors = 16;
               bitCount       = 4;
-            } 
+            }
             else if( numberOfColors > 16 && numberOfColors <= 256 ) //256 Colors
             {
-              numberOfColors = 256; 
+              numberOfColors = 256;
               bitCount       = 8;
             }
 
@@ -356,20 +356,20 @@ import javax.imageio.ImageTypeSpecifier;      //An ImageTypeSpecifier is gotten 
 
           //BitmapHeader
             theStream.writeInt(40);
-            theStream.writeInt(width);          
-            theStream.writeInt(height*2); 
+            theStream.writeInt(width);
+            theStream.writeInt(height*2);
             theStream.writeShort(1);
-            theStream.writeShort(bitCount); 
+            theStream.writeShort(bitCount);
             theStream.writeInt(0);              //Not used
             theStream.writeInt(0);              //Not used
             theStream.writeInt(0);              //Not used
             theStream.writeInt(0);              //Not used
             theStream.writeInt(0);              //Not used
             theStream.writeInt(0);              //Not used
- 
+
           //Palette
             //Is a Palette needed?
-              
+
               if( bitCount >= 24 )   //24 bit or 32 bit
               {
                                      //Do not write a Palette it is only used for 256 colors or less
@@ -418,12 +418,12 @@ import javax.imageio.ImageTypeSpecifier;      //An ImageTypeSpecifier is gotten 
                     else
                     {
                       // NOTE: I have found that instead of RGB, BGR is expected
-                      // I assume this is because of Little Endian. 
- 
+                      // I assume this is because of Little Endian.
+
                       if( l%4 == 0 )           //Blue
                       {
                         //theStream.writeByte((new Color(curImage.getRGB(l/4,j))).getBlue());
-                        theStream.writeByte(curImageRaster.getSample(l/4,j,2));               
+                        theStream.writeByte(curImageRaster.getSample(l/4,j,2));
                       }
                       else if( l%4 == 1 )      //Green
                         theStream.writeByte(curImageRaster.getSample(l/4,j,1));
@@ -432,7 +432,7 @@ import javax.imageio.ImageTypeSpecifier;      //An ImageTypeSpecifier is gotten 
                       else if( l%4 == 3 )      //Alpha
                       {
                         theStream.writeByte(curImageRaster.getSample(l/4,j,3));
-                        //System.out.print(curImageRaster.getSample(l/4,j,3) + " "); 
+                        //System.out.print(curImageRaster.getSample(l/4,j,3) + " ");
                       }
                     }
                   }
@@ -451,12 +451,12 @@ import javax.imageio.ImageTypeSpecifier;      //An ImageTypeSpecifier is gotten 
                     else
                     {
                       // NOTE: I have found that instead of RGB, BGR is expected
-                      // I assume this is because of Little Endian. 
- 
+                      // I assume this is because of Little Endian.
+
                       if( l%3 == 0 )           //Blue
                       {
                         //theStream.writeByte((new Color(curImage.getRGB(l/4,j))).getBlue());
-                        theStream.writeByte(curImageRaster.getSample(l/3,j,2));               
+                        theStream.writeByte(curImageRaster.getSample(l/3,j,2));
                       }
                       else if( l%3 == 1 )      //Green
                         theStream.writeByte(curImageRaster.getSample(l/3,j,1));
@@ -488,7 +488,7 @@ import javax.imageio.ImageTypeSpecifier;      //An ImageTypeSpecifier is gotten 
                           bits[j][l] = false;          //ignore
                         else
                         {
-                          //The following may be too tricky. Since a Monochrome image can only be black 
+                          //The following may be too tricky. Since a Monochrome image can only be black
                           //and white the Red sample (0) will either be 0(black) or 255(white)
                           pixelColor = curImageRaster.getSample(l,j,0);
                           if( pixelColor == 255 )
@@ -518,12 +518,12 @@ import javax.imageio.ImageTypeSpecifier;      //An ImageTypeSpecifier is gotten 
               {
                 //Used to hold a pixels color
                   Color curColor;
-                  
+
                 //Since a colors offset is only 4 bits we must write two offsets at once
                 //combinedPixelOffset will contain two offsets(1 byte)
-                  int   combinedPixelOffset; 
+                  int   combinedPixelOffset;
 
-                //for each row write the offset to the color in the Palette  
+                //for each row write the offset to the color in the Palette
                   for( int j = height-1 ; j >= 0 ; j-- )
                   {
                     //for each bit including padding
@@ -596,7 +596,7 @@ import javax.imageio.ImageTypeSpecifier;      //An ImageTypeSpecifier is gotten 
                             curImageRaster.getSample(l,j,2),
                             curImageRaster.getSample(l,j,3)
                           );
-    
+
                           //If not found this is probably a transparent pixel, make it black.
                           //Otherwise print the offset into the Palette
                             if( !theColors[i].contains((Object)curColor) )
@@ -708,7 +708,7 @@ import javax.imageio.ImageTypeSpecifier;      //An ImageTypeSpecifier is gotten 
             break;
           }
         }
-      } 
+      }
 
       if( is256Plus )  //this is either a 24 bit or 32 bit image
       {
@@ -745,15 +745,15 @@ import javax.imageio.ImageTypeSpecifier;      //An ImageTypeSpecifier is gotten 
         {
           //Will hold a single byte worth of bits
             boolean[] byteWorth = new boolean[8];
-   
+
           //Will hold the int value of a single byte
             int sum = 0;
-  
+
           //for next eight bits
             for( int b = 0 ; b < 8 ; b++ )
             {
               byteWorth[b] = someBits[ i*8 + b ]; //copy to byteWorth
-            } 
+            }
 
           //for each bit in byteWorth
             for( int y = 0 ; y < 8 ; y++ )
@@ -765,7 +765,7 @@ import javax.imageio.ImageTypeSpecifier;      //An ImageTypeSpecifier is gotten 
           //update the bytes array
             bytes[i] = (byte)sum;
         }
-     
+
       return bytes;
     } //END FUNCTION determineBytes()
   }

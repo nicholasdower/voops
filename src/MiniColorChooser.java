@@ -45,7 +45,7 @@ public class MiniColorChooser extends JPanel
           isChanging = false;
           thePreview.setColor(theSliders.getColor());
         }
-      } 
+      }
     );
 
     theSliders.addChangeListener
@@ -62,7 +62,7 @@ public class MiniColorChooser extends JPanel
           isChanging = false;
           thePreview.setColor(theSliders.getColor());
         }
-      } 
+      }
     );
 
     GridBagLayout gridBagLayout = new GridBagLayout();

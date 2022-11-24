@@ -120,7 +120,7 @@ public class SkewPanel extends JPanel
         }
       }
     );
-  
+
     theListeners = new Vector();
 
     theResizors = new Rectangle2D.Double[4];

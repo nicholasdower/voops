@@ -41,17 +41,17 @@ public class SolidChooser extends JPanel
 
     theChooser = aChooser;
 
-    BufferedImage bi = new BufferedImage(16, 16, BufferedImage.TYPE_INT_RGB); 
-    Graphics2D big = bi.createGraphics(); 
-    big.setColor(new Color(122,138,153)); 
-    big.fillRect(0,0,8,8); 
-    big.fillRect(8,8,8,8); 
-    big.setColor(new Color(238,238,238)); 
-    big.fillRect(8,0,8,8); 
-    big.fillRect(0,8,8,8); 
+    BufferedImage bi = new BufferedImage(16, 16, BufferedImage.TYPE_INT_RGB);
+    Graphics2D big = bi.createGraphics();
+    big.setColor(new Color(122,138,153));
+    big.fillRect(0,0,8,8);
+    big.fillRect(8,8,8,8);
+    big.setColor(new Color(238,238,238));
+    big.fillRect(8,0,8,8);
+    big.fillRect(0,8,8,8);
 
-    Rectangle r = new Rectangle(0,0,16,16); 
-    final Paint backgroundPaint = new TexturePaint(bi,r); 
+    Rectangle r = new Rectangle(0,0,16,16);
+    final Paint backgroundPaint = new TexturePaint(bi,r);
 
     theLabel = new JLabel()
     {

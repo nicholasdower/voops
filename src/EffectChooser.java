@@ -29,7 +29,7 @@ public abstract class EffectChooser extends JDialog
   {
     super(anOOPS,aTitle,true);
 
-    theOOPS = anOOPS; 
+    theOOPS = anOOPS;
 
     this.setDefaultCloseOperation(JDialog.DO_NOTHING_ON_CLOSE);
     final JDialog thisDialog = this;
@@ -71,10 +71,10 @@ public abstract class EffectChooser extends JDialog
         }
       }
     );
- 
+
     GridBagLayout layout = new GridBagLayout();
     getContentPane().setLayout(layout);
- 
+
     GridBagConstraints gbc;
 
     gbc = new GridBagConstraints();
@@ -125,7 +125,7 @@ public abstract class EffectChooser extends JDialog
   {
     return theShouldEffect;
   }
-  
+
   public JPanel getContentPanel()
   {
     return theContentPanel;

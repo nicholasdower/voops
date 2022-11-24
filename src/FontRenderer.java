@@ -41,12 +41,12 @@ public class FontRenderer implements ListCellRenderer
 
     if( !((Font)(theFonts.get(selectedIndex))).canDisplay('a') )
     {
-      JLabel title = new JLabel(); 
+      JLabel title = new JLabel();
       title.setHorizontalAlignment(JLabel.LEFT);
       title.setVerticalAlignment(JLabel.CENTER);
       title.setText(((Font)(theFonts.get(selectedIndex))).getFontName());
 
-      JLabel sample = new JLabel(); 
+      JLabel sample = new JLabel();
       sample.setHorizontalAlignment(JLabel.LEFT);
       sample.setVerticalAlignment(JLabel.CENTER);
       sample.setFont((Font)(theFonts.get(selectedIndex)));
@@ -54,19 +54,19 @@ public class FontRenderer implements ListCellRenderer
 
       panel.add(title);
       panel.add(sample);
- 
+
       return panel;
     }
     else
     {
-      JLabel title = new JLabel(); 
+      JLabel title = new JLabel();
       title.setHorizontalAlignment(JLabel.LEFT);
       title.setVerticalAlignment(JLabel.CENTER);
       title.setFont((Font)(theFonts.get(selectedIndex)));
       title.setText(((Font)(theFonts.get(selectedIndex))).getFontName());
 
       panel.add(title);
- 
+
       return panel;
     }
   }

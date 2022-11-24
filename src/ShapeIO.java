@@ -60,8 +60,8 @@ public class ShapeIO
     {
       switch(type)
       {
-        case PathIterator.SEG_CLOSE   :                               
-                                        path.closePath();               
+        case PathIterator.SEG_CLOSE   :
+                                        path.closePath();
                                         break;
         case PathIterator.SEG_CUBICTO : points = readPoints(anOIS,6);
                                         path.curveTo(points[0],points[1],points[2],points[3],points[4],points[5]);

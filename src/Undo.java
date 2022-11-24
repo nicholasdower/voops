@@ -11,7 +11,7 @@ public abstract class Undo implements Serializable
 
   private transient DrawingArea theDrawingArea;
   private double      theZoomFactor;
-  
+
 
   public Undo( DrawingArea anArea )
   {

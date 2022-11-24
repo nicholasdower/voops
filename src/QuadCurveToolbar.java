@@ -35,7 +35,7 @@ public class QuadCurveToolbar extends JPanel
   private LineStatusToolbar theLineStatusToolbar;
 
   public QuadCurveToolbar()
-  { 
+  {
     theLineStatusToolbar = new LineStatusToolbar();
 
     DocumentListener listener = new DocumentListener()

@@ -35,7 +35,7 @@ public class SubSelectFreeTool extends Tool implements Selectable
   private Vector theDifferenceShapes;
   private Vector theOldShapes;
 
-  private KeyListener theDeleteListener; 
+  private KeyListener theDeleteListener;
 
   private SelectionToolbar theSelectionToolbar;
 
@@ -531,7 +531,7 @@ public class SubSelectFreeTool extends Tool implements Selectable
     getDrawingArea().paintShape(getShape());
     //getDrawingArea().repaint();
   }
- 
+
   public void skew( double anXFactor, double aYFactor, double aResizor )
   {
     if( theIntersectedShapes == null && !isSelecting )
@@ -556,22 +556,22 @@ public class SubSelectFreeTool extends Tool implements Selectable
     oldBounds.setRect(combination.getBounds2D());
 
     if( aResizor == 0 )
-    { 
+    {
       Point2D pnt = shearTransform.transform(new Point2D.Double(oldBounds.x,oldBounds.y+oldBounds.height),null);
       translateTransform.setToTranslation(oldBounds.x-pnt.getX(), 0);
     }
     else if( aResizor == 1 )
-    { 
+    {
       Point2D pnt = shearTransform.transform(new Point2D.Double(oldBounds.x+oldBounds.width,oldBounds.y),null);
       translateTransform.setToTranslation(0, oldBounds.y-pnt.getY());
     }
     else if( aResizor == 2 )
-    { 
+    {
       Point2D pnt = shearTransform.transform(new Point2D.Double(oldBounds.x,oldBounds.y),null);
       translateTransform.setToTranslation(0, oldBounds.y-pnt.getY());
     }
     else if( aResizor == 3 )
-    { 
+    {
       Point2D pnt = shearTransform.transform(new Point2D.Double(oldBounds.x,oldBounds.y),null);
       translateTransform.setToTranslation(oldBounds.x-pnt.getX(), 0);
     }
@@ -629,7 +629,7 @@ public class SubSelectFreeTool extends Tool implements Selectable
         getDrawingArea().replaceShape((PaintableShape)shapes.get(i),subtracted);
       }
     }
-    
+
     for( int i = 0 ; i < theIntersectedShapes.size() ; i++ )
     {
       getDrawingArea().paintShape((PaintableShape)(theIntersectedShapes.get(i)));
@@ -678,7 +678,7 @@ public class SubSelectFreeTool extends Tool implements Selectable
         }
       }
     }
-    
+
     for( int i = 0 ; i < theIntersectedShapes.size() ; i++ )
     {
       getDrawingArea().paintShape((PaintableShape)(theIntersectedShapes.get(i)));

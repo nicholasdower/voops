@@ -34,7 +34,7 @@ public class SmoothPath
       thePadding     = aPadding;
       theMinDistance = aDistance;
     }
- 
+
     public void setSettings( double aPadding, double aDistance )
     {
       thePadding     = aPadding;
@@ -70,7 +70,7 @@ public class SmoothPath
       thePoint0 = thePoint1;
       thePoint1 = thePoint2;
       thePoint2 = new Point2D.Double(anX,aY);
-      
+
       if( thePoint0 == null )  //Only two points
       {
         theLastDirection  = DirectionGetter.getDirection(thePoint1,thePoint2);

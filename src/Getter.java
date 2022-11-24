@@ -56,7 +56,7 @@ public class Getter extends JDialog implements MouseListener,MouseMotionListener
   private Graphics      theGraphics;
 
   private Rectangle thePointer;
-  
+
   private int theZoom;
 
   public Getter( Frame aFrame )
@@ -88,13 +88,13 @@ public class Getter extends JDialog implements MouseListener,MouseMotionListener
 
     if( theWidth % theZoom != 0 )
     {
-      theWidth -= theWidth % theZoom; 
+      theWidth -= theWidth % theZoom;
       theHeight = theWidth;
     }
 
     theImageWidth  = (int)(theWidth/theZoom);
     theImageHeight = (int)(theHeight/theZoom);
- 
+
     thePaintImage = new BufferedImage(theWidth,theHeight,BufferedImage.TYPE_INT_ARGB);
     theGraphics = thePaintImage.getGraphics();
 
@@ -147,7 +147,7 @@ public class Getter extends JDialog implements MouseListener,MouseMotionListener
     {
       return null;
     }
-    
+
     theColor = Color.red;
 
     this.pack();

@@ -38,7 +38,7 @@ public class FillTool extends Tool
         Rectangle2D.Double bounds = new Rectangle2D.Double();
           bounds.setRect(shape.getFillShape().getBounds2D());
 
-        if( bounds.width != 0 && bounds.height != 0 ) 
+        if( bounds.width != 0 && bounds.height != 0 )
           shape.setShape(getShape().getFillShape());
       }
       if( shouldFill )
@@ -54,13 +54,13 @@ public class FillTool extends Tool
               if( kind == TransformableTexturePaint.KIND_RADIAL || kind == TransformableTexturePaint.KIND_RECTANGULAR )
               {
                 TransformableTexturePaint paint = (TransformableTexturePaint)((TransformableTexturePaint)getShape().getFillPaint()).clone();
-  
+
                 Rectangle2D.Double rect = new Rectangle2D.Double();
                 rect.setRect(shape.getFillShape().getBounds2D());
 
                 double height = Math.abs(e.getY()-rect.y);
                        height = Math.max(height, Math.abs(e.getY()-(rect.y+rect.height)));
-  
+
                 double width = Math.abs(e.getX()-rect.x);
                        width = Math.max(width, Math.abs(e.getX()-(rect.x+rect.width)));
 

@@ -36,7 +36,7 @@ public class LayerChooser extends JPanel
   private OOPSButton  theAddButton;
 
   private JScrollPane theScrollPane;
-  private JPanel      theViewPortView; 
+  private JPanel      theViewPortView;
   private GridBagLayout theGridBagLayout;
 
   private OOPSButton[]      theUpButtons;

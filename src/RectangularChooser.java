@@ -65,17 +65,17 @@ public class RectangularChooser extends JPanel
     }
 
     setBackground(new Color(0,0,0,0));
-    BufferedImage bi = new BufferedImage(16, 16, BufferedImage.TYPE_INT_RGB); 
-    Graphics2D big = bi.createGraphics(); 
-    big.setColor(new Color(122,138,153)); 
-    big.fillRect(0,0,8,8); 
-    big.fillRect(8,8,8,8); 
-    big.setColor(new Color(238,238,238)); 
-    big.fillRect(8,0,8,8); 
-    big.fillRect(0,8,8,8); 
+    BufferedImage bi = new BufferedImage(16, 16, BufferedImage.TYPE_INT_RGB);
+    Graphics2D big = bi.createGraphics();
+    big.setColor(new Color(122,138,153));
+    big.fillRect(0,0,8,8);
+    big.fillRect(8,8,8,8);
+    big.setColor(new Color(238,238,238));
+    big.fillRect(8,0,8,8);
+    big.fillRect(0,8,8,8);
 
-    Rectangle r = new Rectangle(0,0,16,16); 
-    theBackgroundPaint = new TexturePaint(bi,r); 
+    Rectangle r = new Rectangle(0,0,16,16);
+    theBackgroundPaint = new TexturePaint(bi,r);
 
 
     GridBagLayout gridBagLayout = new GridBagLayout();
@@ -115,7 +115,7 @@ public class RectangularChooser extends JPanel
   private void updateImage()
   {
     theImage   = new BufferedImage(theSize, theSize, BufferedImage.TYPE_INT_ARGB);
-    Graphics g = theImage.getGraphics(); 
+    Graphics g = theImage.getGraphics();
 
     Color outerColor = theLabels[0].getColor();
     Color innerColor = theLabels[1].getColor();
@@ -131,7 +131,7 @@ public class RectangularChooser extends JPanel
     double gStep = ((double)gDiff)/((double)steps);
     double bStep = ((double)bDiff)/((double)steps);
     double aStep = ((double)aDiff)/((double)steps);
- 
+
     Color  curColor;
     for( int x = 0 ; x < steps ; x++ )
     {
@@ -161,7 +161,7 @@ public class RectangularChooser extends JPanel
   public static BufferedImage createImage( Color[] someColors, int width, int height )
   {
     BufferedImage image   = new BufferedImage(theSize, theSize, BufferedImage.TYPE_INT_ARGB);
-    Graphics g = image.getGraphics(); 
+    Graphics g = image.getGraphics();
 
     Color outerColor = someColors[0];
     Color innerColor = someColors[1];
@@ -177,7 +177,7 @@ public class RectangularChooser extends JPanel
     double gStep = ((double)gDiff)/((double)steps);
     double bStep = ((double)bDiff)/((double)steps);
     double aStep = ((double)aDiff)/((double)steps);
- 
+
     Color  curColor;
     for( int x = 0 ; x < steps ; x++ )
     {
@@ -196,7 +196,7 @@ public class RectangularChooser extends JPanel
 
     return image;
   }
- 
+
   public void paint( Graphics g )
   {
     if( thePaint == null )
@@ -215,7 +215,7 @@ public class RectangularChooser extends JPanel
 
     super.paint(g);
   }
-  
+
   public TransformableTexturePaint getPaint()
   {
     return thePaint;

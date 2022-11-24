@@ -59,7 +59,7 @@ public class SprayTool extends Tool implements Runnable
   public void mousePressed( MouseEvent e )
   {
     thePoint = new Point(e.getX(),e.getY());
-     
+
     theSprayThread = new Thread(this,"Spray");
     theSprayThread.start();
   }

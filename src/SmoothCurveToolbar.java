@@ -29,10 +29,10 @@ public class SmoothCurveToolbar extends JPanel
   {
     thePaddingSlider = new JSlider(0,100,45);
     thePaddingLabel = new JLabel("Padding:");
-  
+
     thePaddingSlider.addChangeListener
     (
-      new ChangeListener() 
+      new ChangeListener()
       {
         public void stateChanged( ChangeEvent e )
         {
@@ -110,7 +110,7 @@ public class SmoothCurveToolbar extends JPanel
       return;
     try
     {
-      theTool.setCurveSettings(((double)thePaddingSlider.getValue())/100,Double.parseDouble(theMinDistanceField.getText()));     
+      theTool.setCurveSettings(((double)thePaddingSlider.getValue())/100,Double.parseDouble(theMinDistanceField.getText()));
     }
     catch( NumberFormatException nfe )
     {

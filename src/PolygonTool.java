@@ -21,7 +21,7 @@ public class PolygonTool extends Tool implements LineAngleLimitable
   private double[] theAngles;
 
   private static PolygonToolbar theToolbar = new PolygonToolbar();
- 
+
   private boolean isInited = false;
 
   private boolean  shouldClose = true;
@@ -77,7 +77,7 @@ public class PolygonTool extends Tool implements LineAngleLimitable
       if( e.getClickCount() == 2 )
       {
         drawLine(e.getX(),e.getY());
-    
+
         if( shouldClose )
           thePath.closePath();
         getShape().setShape(thePath);
@@ -182,7 +182,7 @@ public class PolygonTool extends Tool implements LineAngleLimitable
           limitedPoint = LocationGetter.getLocation(theLastPoint.x,theLastPoint.y,limitedDistance*getDrawingArea().getZoom(),limitedDirection);
         }
         limitedDirection = Math.toDegrees(limitedDirection);
-      } 
+      }
       else
         limitedDirection = direction;
 

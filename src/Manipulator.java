@@ -340,7 +340,7 @@ public class Manipulator
       return;
 
     createResizors();
-  } 
+  }
 
   public boolean holds( Point2D.Float aPoint )
   {
@@ -356,7 +356,7 @@ public class Manipulator
       return true;
 
     return false;
-  } 
+  }
 
   public Point2D.Float getPoint( Point aPoint )
   {

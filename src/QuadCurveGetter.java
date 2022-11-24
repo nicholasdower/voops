@@ -38,10 +38,10 @@ public class QuadCurveGetter
         endDir = DirectionGetter.getDirection(x1,y1,x0,y0);
 
         double temp;
-        temp = x0; 
+        temp = x0;
         x0   = x2;
         x2   = temp;
-        temp = y0; 
+        temp = y0;
         y0   = y2;
         y2   = temp;
       }
@@ -59,10 +59,10 @@ public class QuadCurveGetter
         endDir = DirectionGetter.getDirection(x1,y1,x0,y0);
 
         double temp;
-        temp = x0; 
+        temp = x0;
         x0   = x2;
         x2   = temp;
-        temp = y0; 
+        temp = y0;
         y0   = y2;
         y2   = temp;
       }
@@ -74,7 +74,7 @@ public class QuadCurveGetter
 
     if( angle < .1 || startDir == baseDir || startDir == opBaseDir)
     {
-      GeneralPath path = new GeneralPath(); 
+      GeneralPath path = new GeneralPath();
       //System.out.println("Zero");
       path.moveTo((float)x0,(float)y0);
       path.lineTo((float)x1,(float)y1);
@@ -91,7 +91,7 @@ public class QuadCurveGetter
     Point2D.Double     max     = new Point2D.Double(x1,y1);
     QuadCurve2D.Double currentCurve;
     double extendDist = .1;
- 
+
     for( int i = 1 ; i < 100000 ; i++ )
     {
       control = LocationGetter.getLocation(x1,y1,i*extendDist,extendDir);
@@ -103,7 +103,7 @@ public class QuadCurveGetter
       }
     }
 
-    GeneralPath path = new GeneralPath(); 
+    GeneralPath path = new GeneralPath();
     System.out.println("Created Path");
     path.moveTo((float)x0,(float)y0);
     path.lineTo((float)x1,(float)y1);

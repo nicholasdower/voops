@@ -24,7 +24,7 @@ public class SpecificTransformUndo extends Undo
       theTransforms.add(new AffineTransform());
     }
   }
- 
+
   public void transform( AffineTransform aTransform, PaintableShape aShape )
   {
     ((AffineTransform)theTransforms.get(theShapes.indexOf(aShape))).concatenate(aTransform);

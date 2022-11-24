@@ -16,7 +16,7 @@ import java.awt.Cursor;
 public class Tool implements MouseListener, MouseMotionListener
 {
   private int            theType;
-  
+
   private DrawingArea    theDrawingArea;
   private PaintableShape theShape;
 
@@ -26,7 +26,7 @@ public class Tool implements MouseListener, MouseMotionListener
 
   private Cursor theCursor;
 
-  public static final double theMoveKeyValue = .3333333; 
+  public static final double theMoveKeyValue = .3333333;
 
   public Tool( DrawingArea aDrawingArea, int aType )
   {
@@ -60,13 +60,13 @@ public class Tool implements MouseListener, MouseMotionListener
     theDrawingArea.clearDrawingArea();
     if( theShape == null )
       return;
-    
+
     if( theShape.getFillShape() == null )
       return;
 
     getDrawingArea().setUndoPoint(new CompleteUndo(getDrawingArea()));
     theDrawingArea.addShape(theShape.get());
- 
+
     theDrawingArea.repaint();
   }
 
@@ -137,7 +137,7 @@ public class Tool implements MouseListener, MouseMotionListener
   {
     return null;
   }
- 
+
   public double getMoveKeyValue()
   {
     return theMoveKeyValue*getDrawingArea().getZoom();
