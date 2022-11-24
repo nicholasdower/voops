@@ -24,7 +24,7 @@ public class FontComboBox extends JComboBox
     shouldOnlyAlpha = onlyAlpha;
     findFonts();
     for( int i = 0 ; i < theFonts.size() ; i++ )
-      addItem(new Integer(i));
+      addItem(Integer.valueOf(i));
     this.setRenderer(new FontRenderer(theFonts));
   }
 

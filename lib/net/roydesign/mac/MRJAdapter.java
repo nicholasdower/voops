@@ -178,7 +178,7 @@ public final class MRJAdapter implements MRJFolderConstants
 	{
 		// Get the version of Java
 		String prop = System.getProperty("java.version");
-		javaVersion = new Float(prop.substring(0, 3)).floatValue();
+		javaVersion = Float.valueOf(prop.substring(0, 3)).floatValue();
 
 		// Get the version of MRJ
 		/**
@@ -196,7 +196,7 @@ public final class MRJAdapter implements MRJFolderConstants
 				pos = prop.indexOf('.', pos + 1);
 			if (pos == -1)
 				pos = len;
-			mrjVersion = new Float(prop.substring(0, pos)).floatValue();
+			mrjVersion = Float.valueOf(prop.substring(0, pos)).floatValue();
 		}
 		
 		// Instantiate the Cocoa class loader if we're on Mac OS X

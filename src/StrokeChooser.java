@@ -88,7 +88,7 @@ public class StrokeChooser extends JPanel
     Integer[] o = new Integer[179];
     for( int i = 1 ; i < 179 ; i++ )
     {
-      o[i] = new Integer(i);
+      o[i] = Integer.valueOf(i);
     }
 
     theMiterLimitSpinner = new JSpinner(new SpinnerListModel(o));
@@ -105,7 +105,7 @@ public class StrokeChooser extends JPanel
     Float[] f = new Float[300];
     for( int i = 0 ; i < 300 ; i++ )
     {
-      f[i] = new Float(((float)i)/10f);
+      f[i] = Float.valueOf(((float)i)/10f);
     }
 
     theOffsetSpinner = new JSpinner(new SpinnerListModel(f));
@@ -444,7 +444,7 @@ public class StrokeChooser extends JPanel
       join = BasicStroke.JOIN_MITER;
       theMiterLimitSpinner.setEnabled(true);
       theMiterLimitLabel.setEnabled(true);
-      theMiterLimitSpinner.setValue(new Integer((int)aStroke.getMiterLimit()));
+      theMiterLimitSpinner.setValue(Integer.valueOf((int)aStroke.getMiterLimit()));
     }
     else if( join == BasicStroke.JOIN_ROUND )
     {
@@ -469,7 +469,7 @@ public class StrokeChooser extends JPanel
     }
     theDashField.setText(dashString);
 
-    theOffsetSpinner.setValue(new Float(((int)(aStroke.getDashPhase()*10))/10f));
+    theOffsetSpinner.setValue(Float.valueOf(((int)(aStroke.getDashPhase()*10))/10f));
 
     changeOccuring = false;
     updateStroke();

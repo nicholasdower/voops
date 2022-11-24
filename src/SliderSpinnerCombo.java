@@ -35,7 +35,7 @@ public class SliderSpinnerCombo extends JPanel
     Integer[] o = new Integer[(aMax-aMin)+1];
     for( int i = 0 ; i < (aMax-aMin)+1 ; i++ )
     {
-      o[i] = new Integer(i+aMin);
+      o[i] = Integer.valueOf(i+aMin);
     }
 
     theSpinnerModel = new SpinnerListModel(o);
@@ -71,7 +71,7 @@ public class SliderSpinnerCombo extends JPanel
             return;
 
           isChanging = true;
-          theSpinner.setValue(new Integer(theSlider.getValue()));
+          theSpinner.setValue(Integer.valueOf(theSlider.getValue()));
           notifyListeners();
           isChanging = false;
         }

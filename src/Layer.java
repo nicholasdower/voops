@@ -109,7 +109,7 @@ public class Layer implements Serializable
       index = theShapes.indexOf(someShapes.get(i));
       int loc = 0;
       while( loc < indexes.size() && index > ((Integer)indexes.get(loc)).intValue() ){loc++;}
-      indexes.insertElementAt(new Integer(index),loc);
+      indexes.insertElementAt(Integer.valueOf(index),loc);
     }
 
     int loc;
@@ -131,7 +131,7 @@ public class Layer implements Serializable
       index = theShapes.indexOf(someShapes.get(i));
       int loc = 0;
       while( loc < indexes.size() && index > ((Integer)indexes.get(loc)).intValue() ){loc++;}
-      indexes.insertElementAt(new Integer(index),loc);
+      indexes.insertElementAt(Integer.valueOf(index),loc);
     }
 
     int loc;
@@ -155,7 +155,7 @@ public class Layer implements Serializable
       {
         int loc = 0;
         while( loc < indexes.size() && index > ((Integer)indexes.get(loc)).intValue() ){loc++;}
-        indexes.insertElementAt(new Integer(index),loc);
+        indexes.insertElementAt(Integer.valueOf(index),loc);
       }
     }
 
@@ -183,7 +183,7 @@ public class Layer implements Serializable
       {
         int loc = 0;
         while( loc < indexes.size() && index > ((Integer)indexes.get(loc)).intValue() ){loc++;}
-        indexes.insertElementAt(new Integer(index),loc);
+        indexes.insertElementAt(Integer.valueOf(index),loc);
       }
     }
 
