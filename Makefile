@@ -9,7 +9,7 @@ help:
 build: src/
 	rm -rf build
 	mkdir -p build
-	javac -O -d build src/*.java
+	javac -O -cp 'lib' -d build src/*.java
 
 VOOPS.jar: build bsh/ images/
 	jar --create --manifest MANIFEST.MF --file VOOPS.jar -C build . bsh -C images .
@@ -19,11 +19,11 @@ jar: VOOPS.jar
 
 .PHONY: run
 run: build
-	java -Xmx400m -Xms400m -cp '.:images:build' VOOPS
+	java -Xmx400m -Xms400m -cp 'lib:images:build' VOOPS
 
 .PHONY: run-mac
 run-mac: build
-	java -Dapple.laf.useScreenMenuBar=true -Xmx400m -Xms400m -cp '.:images:build' VOOPS
+	java -Dapple.laf.useScreenMenuBar=true -Xmx400m -Xms400m -cp 'lib:images:build' VOOPS
 
 .PHONY: run-jar
 run-jar: VOOPS.jar
@@ -32,4 +32,4 @@ run-jar: VOOPS.jar
 .PHONY: clean
 clean:
 	rm -rf build
-	rm VOOPS.jar
+	rm -rf VOOPS.jar
