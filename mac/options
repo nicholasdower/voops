@@ -1,0 +1,10 @@
+--input .
+--name VOOPS
+--main-class VOOPS
+--about-url "https://github.com/nicholasdower/voops"
+--type dmg
+--icon "mac/VOOPS.icns"
+--vendor "Nick Dower"
+--copyright "Copyright 2022 Nick Dower"
+--mac-package-name "VOOPS"
+--java-options '-Xmx400m -Xms400m -Dapple.laf.useScreenMenuBar=true'
