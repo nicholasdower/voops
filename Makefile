@@ -1,10 +1,12 @@
 .PHONY: help
 help:
-	@echo "make build   # build"
-	@echo "make jar     # build jar (build first if required)"
-	@echo "make run     # run (build first if required)"
-	@echo "make run-jar # run via jar (build first if required)"
-	@echo "make clean   # delete build artifacts"
+	@echo "make build       - build"
+	@echo "make jar         - build jar                 (build if required)"
+	@echo "make run         - run                       (build if required)"
+	@echo "make run-mac     - run with Mac menu         (build if required)"
+	@echo "make run-jar     - run via jar               (build if required)"
+	@echo "make run-jar-mac - run via jar with Mac menu (build if required)"
+	@echo "make clean       - delete build artifacts"
 
 build: src/ lib/
 	rm -rf build
