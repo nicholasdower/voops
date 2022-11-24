@@ -6,13 +6,13 @@ help:
 	@echo "make run-jar # run via jar (build first if required)"
 	@echo "make clean   # delete build artifacts"
 
-build: src/
+build: src/ lib/
 	rm -rf build
 	mkdir -p build
 	javac -O -cp 'lib' -d build src/*.java
 
-VOOPS.jar: build bsh/ images/
-	jar --create --manifest MANIFEST.MF --file VOOPS.jar -C build . bsh -C images .
+VOOPS.jar: build images/
+	jar --create --manifest MANIFEST.MF --file VOOPS.jar -C build . -C lib bsh -C images .
 
 .PHONY: jar
 jar: VOOPS.jar
@@ -28,6 +28,10 @@ run-mac: build
 .PHONY: run-jar
 run-jar: VOOPS.jar
 	java -Xmx600m -Xms600m -jar VOOPS.jar
+
+.PHONY: run-jar-mac
+run-jar-mac: VOOPS.jar
+	java -Dapple.laf.useScreenMenuBar=true -Xmx600m -Xms600m -jar VOOPS.jar
 
 .PHONY: clean
 clean:
