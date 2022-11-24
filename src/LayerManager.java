@@ -22,6 +22,7 @@ public class LayerManager implements Serializable
 
   private transient DrawingArea theDrawingArea;
 
+  private static final int MAX_UNDOS = 10;
   Vector theUndos;
   Vector theRedos;
  
@@ -107,8 +108,10 @@ public class LayerManager implements Serializable
 
   public void setCurrentLayer( Layer aLayer )
   {
+    theDrawingArea.clearDrawingArea();
     setUndoPoint(new CompleteUndo(theDrawingArea));
     theCurrentLayer = theLayers.indexOf(aLayer);
+    
   }
 
   public void setCurrentLayer( int aLayer )
@@ -343,6 +346,9 @@ public class LayerManager implements Serializable
       return;
     theRedos = new Vector();
     theUndos.add(anUndo);
+
+    if( theUndos.size() > MAX_UNDOS )
+      theUndos.remove(0);
   }
 
   public void undo()

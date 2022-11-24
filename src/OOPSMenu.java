@@ -64,6 +64,9 @@ import java.awt.datatransfer.UnsupportedFlavorException;
 import javax.swing.JCheckBox;
 import javax.swing.JOptionPane;
 
+import org.joshy.common.swing.xp.XPHelper;
+import org.joshy.common.swing.xp.XPFactory;
+
 public class OOPSMenu extends JMenuBar
 {
   private OOPS theOOPS;
@@ -94,7 +97,8 @@ public class OOPSMenu extends JMenuBar
   private JCheckBox theSmoothButton;
 
   private Vector theTypes;
-  public OOPSMenu( OOPS anOOPS)
+  private Vector theOpenTypes;
+  public OOPSMenu( OOPS anOOPS )
   {
     theOOPS = anOOPS;
 
@@ -131,6 +135,7 @@ public class OOPSMenu extends JMenuBar
     theTypes.add("oop");
     theTypes.add("ico");
     theTypes.add("gif");
+    theTypes.add("svg");
     theFileChooser.removeChoosableFileFilter(theFileChooser.getAcceptAllFileFilter());
     MyFileFilter PNGFileFilter = null;
     for( int i = 0 ; i < s.length ; i++ )
@@ -154,8 +159,29 @@ public class OOPSMenu extends JMenuBar
 
 
     theOpenFileChooser = new JFileChooser(System.getProperty("user.home"));
-    theOpenFileChooser.addChoosableFileFilter(new MyFileFilter(new String[]{"oop"},"VOOPS Images"));
     theOpenFileChooser.removeChoosableFileFilter(theFileChooser.getAcceptAllFileFilter());
+
+    s = ImageIO.getReaderFormatNames();
+    theOpenTypes = new Vector();
+    theOpenTypes.add("oop");
+    for( int i = 0 ; i < s.length ; i++ )
+    {
+      if( !theOpenTypes.contains(s[i].toLowerCase()) )
+      {
+        theOpenTypes.add(s[i].toLowerCase());
+        theOpenFileChooser.addChoosableFileFilter(new MyFileFilter(new String[]{s[i].toLowerCase()},s[i].toUpperCase() + " Images"));
+      }
+    }
+    String[] all = new String[theOpenTypes.size()];
+    for( int i = 0 ; i < all.length ; i++ )
+    {
+      all[i] = (String)theOpenTypes.get(i);
+    }
+    theOpenFileChooser.addChoosableFileFilter(new MyFileFilter(s,"All Supported Images"));
+
+    MyFileFilter VOOPSFileFilter = new MyFileFilter(new String[]{"oop"},"VOOPS Images");
+    theOpenFileChooser.addChoosableFileFilter(VOOPSFileFilter);
+    theOpenFileChooser.setFileFilter(VOOPSFileFilter);
 
    
     theSmoothButton = new JCheckBox("Smooth");
@@ -218,6 +244,14 @@ public class OOPSMenu extends JMenuBar
       public void actionPerformed( ActionEvent e )
       {
         copyToClipboard(true);
+      }
+    };
+
+    ActionListener saveSelectionListener = new ActionListener()
+    {
+      public void actionPerformed( ActionEvent e )
+      {
+        saveSelection();
       }
     };
 
@@ -420,24 +454,32 @@ public class OOPSMenu extends JMenuBar
     theToolbarRedoButton = new OOPSButton("Redo.png","Redo");
     theToolbarRedoButton.addActionListener(redoListener);
 
+    XPHelper xp = XPFactory.getXPHelper();
 
     JMenu fileMenu = new JMenu("File");
 
 
-    JMenuItem openItem  = new JMenuItem("Open",theToolbarOpenButton.getIcon());
+    JMenuItem openItem  = xp.getOpenMenu();//new JMenuItem("Open",theToolbarOpenButton.getIcon());
     fileMenu.add(openItem);
 
-    JMenuItem newItem  = new JMenuItem("New",theToolbarNewButton.getIcon());
+    JMenuItem newItem  = xp.getNewMenu();//new JMenuItem("New",theToolbarNewButton.getIcon());
     fileMenu.add(newItem);
 
-    JMenuItem saveItem  = new JMenuItem("Save",theToolbarSaveButton.getIcon());
+    JMenuItem saveItem  = xp.getSaveMenu();//new JMenuItem("Save",theToolbarSaveButton.getIcon());
     fileMenu.add(saveItem);
 
-    JMenuItem saveAsItem  = new JMenuItem("Save As...",new ImageIcon(this.getClass().getClassLoader().getResource("SaveAs.png")));
+    JMenuItem saveAsItem  = new JMenuItem("Save As...");//,new ImageIcon(this.getClass().getClassLoader().getResource("SaveAs.png")));
     fileMenu.add(saveAsItem);
 
-    JMenuItem exitItem  = new JMenuItem("Exit",new ImageIcon(this.getClass().getClassLoader().getResource("Exit.png")));
-    fileMenu.add(exitItem);
+    JMenuItem saveSelectionItem = new JMenuItem("Save Selection...");
+    fileMenu.add(saveSelectionItem);
+
+    JMenuItem exitItem  = xp.getQuitMenu();//new JMenuItem("Exit",new ImageIcon(this.getClass().getClassLoader().getResource("Exit.png")));
+    if(!xp.isMac())
+    {
+      fileMenu.addSeparator();
+      fileMenu.add(exitItem);
+    }
 
     JMenu editMenu = new JMenu("Edit");
 
@@ -448,7 +490,6 @@ public class OOPSMenu extends JMenuBar
     editMenu.add(redoItem);
 
     editMenu.addSeparator();
-
 
     JMenu viewMenu = new JMenu("View");
     JMenuItem GIFCreateItem  = new JMenuItem("Animated GIF Creator",new ImageIcon(this.getClass().getClassLoader().getResource("GIFCreater.png")));
@@ -675,6 +716,7 @@ public class OOPSMenu extends JMenuBar
     pasteShapesItem.addActionListener(pasteShapeListener);
     pasteFromClipboardItem.addActionListener(pasteFromClipboardListener);
     insertImageItem.addActionListener(insertImageListener);
+    saveSelectionItem.addActionListener(saveSelectionListener);
 
     GIFCreateItem.addActionListener(GIFCreateListener);
 
@@ -749,128 +791,131 @@ public class OOPSMenu extends JMenuBar
     gbc.anchor = GridBagConstraints.LINE_START;
     gridBagLayout.setConstraints(helpMenu, gbc);
     this.add(helpMenu);
+ 
+    if(!"true".equals(System.getProperty("apple.laf.useScreenMenuBar")))
+    {
+      gbc = new GridBagConstraints();
+      gbc.gridx = 6;
+      gbc.gridy = 0;
+      gbc.weightx = 0;
+      gbc.weighty = 0;
+      gbc.insets = new Insets(1,1,1,1);
+      gbc.anchor = GridBagConstraints.LINE_END;
+      gridBagLayout.setConstraints(theToolbarSaveButton, gbc);
+      this.add(theToolbarNewButton);
 
-    gbc = new GridBagConstraints();
-    gbc.gridx = 6;
-    gbc.gridy = 0;
-    gbc.weightx = 0;
-    gbc.weighty = 0;
-    gbc.insets = new Insets(1,1,1,1);
-    gbc.anchor = GridBagConstraints.LINE_END;
-    gridBagLayout.setConstraints(theToolbarSaveButton, gbc);
-    this.add(theToolbarNewButton);
+      gbc = new GridBagConstraints();
+      gbc.gridx = 7;
+      gbc.gridy = 0;
+      gbc.weightx = 0;
+      gbc.weighty = 0;
+      gbc.insets = new Insets(1,1,1,1);
+      gbc.anchor = GridBagConstraints.LINE_START;
+      gridBagLayout.setConstraints(theToolbarSaveButton, gbc);
+      this.add(theToolbarOpenButton);
 
-    gbc = new GridBagConstraints();
-    gbc.gridx = 7;
-    gbc.gridy = 0;
-    gbc.weightx = 0;
-    gbc.weighty = 0;
-    gbc.insets = new Insets(1,1,1,1);
-    gbc.anchor = GridBagConstraints.LINE_START;
-    gridBagLayout.setConstraints(theToolbarSaveButton, gbc);
-    this.add(theToolbarOpenButton);
+      gbc = new GridBagConstraints();
+      gbc.gridx = 8;
+      gbc.gridy = 0;
+      gbc.weightx = 0;
+      gbc.weighty = 0;
+      gbc.insets = new Insets(1,1,1,1);
+      gbc.anchor = GridBagConstraints.LINE_START;
+      gridBagLayout.setConstraints(theToolbarSaveButton, gbc);
+      this.add(theToolbarSaveButton);
 
-    gbc = new GridBagConstraints();
-    gbc.gridx = 8;
-    gbc.gridy = 0;
-    gbc.weightx = 0;
-    gbc.weighty = 0;
-    gbc.insets = new Insets(1,1,1,1);
-    gbc.anchor = GridBagConstraints.LINE_START;
-    gridBagLayout.setConstraints(theToolbarSaveButton, gbc);
-    this.add(theToolbarSaveButton);
+      gbc = new GridBagConstraints();
+      gbc.gridx = 9;
+      gbc.gridy = 0;
+      gbc.weightx = 0;
+      gbc.weighty = 0;
+      gbc.insets = new Insets(1,1,1,1);
+      gbc.anchor = GridBagConstraints.LINE_START;
+      gridBagLayout.setConstraints(theToolbarUndoButton, gbc);
+      this.add(theToolbarUndoButton);
 
-    gbc = new GridBagConstraints();
-    gbc.gridx = 9;
-    gbc.gridy = 0;
-    gbc.weightx = 0;
-    gbc.weighty = 0;
-    gbc.insets = new Insets(1,1,1,1);
-    gbc.anchor = GridBagConstraints.LINE_START;
-    gridBagLayout.setConstraints(theToolbarUndoButton, gbc);
-    this.add(theToolbarUndoButton);
+      gbc = new GridBagConstraints();
+      gbc.gridx = 10;
+      gbc.gridy = 0;
+      gbc.weightx = 0;
+      gbc.weighty = 0;
+      gbc.insets = new Insets(1,1,1,1);
+      gbc.anchor = GridBagConstraints.LINE_START;
+      gridBagLayout.setConstraints(theToolbarRedoButton, gbc);
+      this.add(theToolbarRedoButton);
 
-    gbc = new GridBagConstraints();
-    gbc.gridx = 10;
-    gbc.gridy = 0;
-    gbc.weightx = 0;
-    gbc.weighty = 0;
-    gbc.insets = new Insets(1,1,1,1);
-    gbc.anchor = GridBagConstraints.LINE_START;
-    gridBagLayout.setConstraints(theToolbarRedoButton, gbc);
-    this.add(theToolbarRedoButton);
+      gbc = new GridBagConstraints();
+      gbc.gridx = 11;
+      gbc.gridy = 0;
+      gbc.weightx = 0;
+      gbc.weighty = 0;
+      gbc.insets = new Insets(1,1,1,1);
+      gbc.anchor = GridBagConstraints.LINE_START;
+      gridBagLayout.setConstraints(theToolbarCopyShapeButton, gbc);
+      this.add(theToolbarCopyShapeButton);
 
-    gbc = new GridBagConstraints();
-    gbc.gridx = 11;
-    gbc.gridy = 0;
-    gbc.weightx = 0;
-    gbc.weighty = 0;
-    gbc.insets = new Insets(1,1,1,1);
-    gbc.anchor = GridBagConstraints.LINE_START;
-    gridBagLayout.setConstraints(theToolbarCopyShapeButton, gbc);
-    this.add(theToolbarCopyShapeButton);
+      gbc = new GridBagConstraints();
+      gbc.gridx = 12;
+      gbc.gridy = 0;
+      gbc.weightx = 0;
+      gbc.weighty = 0;
+      gbc.insets = new Insets(1,1,1,1);
+      gbc.anchor = GridBagConstraints.LINE_START;
+      gridBagLayout.setConstraints(theToolbarPasteShapeButton, gbc);
+      this.add(theToolbarPasteShapeButton);
 
-    gbc = new GridBagConstraints();
-    gbc.gridx = 12;
-    gbc.gridy = 0;
-    gbc.weightx = 0;
-    gbc.weighty = 0;
-    gbc.insets = new Insets(1,1,1,1);
-    gbc.anchor = GridBagConstraints.LINE_START;
-    gridBagLayout.setConstraints(theToolbarPasteShapeButton, gbc);
-    this.add(theToolbarPasteShapeButton);
+      gbc = new GridBagConstraints();
+      gbc.gridx = 13;
+      gbc.gridy = 0;
+      gbc.weightx = 0;
+      gbc.weighty = 0;
+      gbc.anchor = GridBagConstraints.LINE_START;
+      gridBagLayout.setConstraints(copyToClipboardMenu, gbc);
+      this.add(copyToClipboardMenu);
+      copyToClipboardMenu.setMaximumSize(new Dimension(1,1));
+      copyToClipboardMenu.setMinimumSize(new Dimension(1,1));
+      copyToClipboardMenu.setPreferredSize(new Dimension(1,1));
 
-    gbc = new GridBagConstraints();
-    gbc.gridx = 13;
-    gbc.gridy = 0;
-    gbc.weightx = 0;
-    gbc.weighty = 0;
-    gbc.anchor = GridBagConstraints.LINE_START;
-    gridBagLayout.setConstraints(copyToClipboardMenu, gbc);
-    this.add(copyToClipboardMenu);
-    copyToClipboardMenu.setMaximumSize(new Dimension(1,1));
-    copyToClipboardMenu.setMinimumSize(new Dimension(1,1));
-    copyToClipboardMenu.setPreferredSize(new Dimension(1,1));
+      gbc = new GridBagConstraints();
+      gbc.gridx = 13;
+      gbc.gridy = 0;
+      gbc.weightx = 0;
+      gbc.weighty = 0;
+      gbc.insets = new Insets(1,1,1,1);
+      gbc.anchor = GridBagConstraints.LINE_START;
+      gridBagLayout.setConstraints(theToolbarCopyToClipboardButton, gbc);
+      this.add(theToolbarCopyToClipboardButton);
 
-    gbc = new GridBagConstraints();
-    gbc.gridx = 13;
-    gbc.gridy = 0;
-    gbc.weightx = 0;
-    gbc.weighty = 0;
-    gbc.insets = new Insets(1,1,1,1);
-    gbc.anchor = GridBagConstraints.LINE_START;
-    gridBagLayout.setConstraints(theToolbarCopyToClipboardButton, gbc);
-    this.add(theToolbarCopyToClipboardButton);
+      gbc = new GridBagConstraints();
+      gbc.gridx = 14;
+      gbc.gridy = 0;
+      gbc.weightx = 0;
+      gbc.weighty = 0;
+      gbc.insets = new Insets(1,1,1,1);
+      gbc.anchor = GridBagConstraints.LINE_START;
+      gridBagLayout.setConstraints(theToolbarPasteFromClipboardButton, gbc);
+      this.add(theToolbarPasteFromClipboardButton);
 
-    gbc = new GridBagConstraints();
-    gbc.gridx = 14;
-    gbc.gridy = 0;
-    gbc.weightx = 0;
-    gbc.weighty = 0;
-    gbc.insets = new Insets(1,1,1,1);
-    gbc.anchor = GridBagConstraints.LINE_START;
-    gridBagLayout.setConstraints(theToolbarPasteFromClipboardButton, gbc);
-    this.add(theToolbarPasteFromClipboardButton);
+      gbc = new GridBagConstraints();
+      gbc.gridx = 15;
+      gbc.gridy = 0;
+      gbc.weightx = 0;
+      gbc.weighty = 0;
+      gbc.insets = new Insets(1,1,1,1);
+      gbc.anchor = GridBagConstraints.LINE_START;
+      gridBagLayout.setConstraints(theToolbarInsertAnImageButton, gbc);
+      this.add(theToolbarInsertAnImageButton);
 
-    gbc = new GridBagConstraints();
-    gbc.gridx = 15;
-    gbc.gridy = 0;
-    gbc.weightx = 0;
-    gbc.weighty = 0;
-    gbc.insets = new Insets(1,1,1,1);
-    gbc.anchor = GridBagConstraints.LINE_START;
-    gridBagLayout.setConstraints(theToolbarInsertAnImageButton, gbc);
-    this.add(theToolbarInsertAnImageButton);
-
-    gbc = new GridBagConstraints();
-    gbc.gridx = 16;
-    gbc.gridy = 0;
-    gbc.weightx = .3;
-    gbc.weighty = 0;
-    gbc.insets = new Insets(1,1,1,1);
-    gbc.anchor = GridBagConstraints.LINE_START;
-    gridBagLayout.setConstraints(theSmoothButton, gbc);
-    this.add(theSmoothButton);
+      gbc = new GridBagConstraints();
+      gbc.gridx = 16;
+      gbc.gridy = 0;
+      gbc.weightx = .3;
+      gbc.weighty = 0;
+      gbc.insets = new Insets(1,1,1,1);
+      gbc.anchor = GridBagConstraints.LINE_START;
+      gridBagLayout.setConstraints(theSmoothButton, gbc);
+      this.add(theSmoothButton);
+    }
   }
 
   public void exit()
@@ -1038,6 +1083,35 @@ public class OOPSMenu extends JMenuBar
     return null;
   }
 
+  public void saveSelection()
+  {
+    BufferedImage image = getSelectedImage(false);
+    String[] file = getSaveFile();
+
+    if( file == null )
+      return;
+
+    if( file[1].toLowerCase().equals("png") )
+    {
+      try
+      {
+        ImageIO.write( image, file[1], new File(file[0]+"."+file[1]) );
+      }
+      catch( java.io.IOException ioe )
+      {
+        System.out.println(ioe);
+      }
+    }
+    else if( file[1].toLowerCase().equals("gif") )
+    {
+      AnimatedGifEncoder e = new AnimatedGifEncoder();
+      e.start(file[0]+"."+file[1]);
+      e.setQuality(1);
+      e.addFrame(image);
+      e.finish();
+    }
+  }
+
   public void insertImage()
   {
     if( TextureChooser.theFileChooser.showOpenDialog(theOOPS) == JFileChooser.APPROVE_OPTION)
@@ -1045,25 +1119,36 @@ public class OOPSMenu extends JMenuBar
       try
       {
         BufferedImage image = ImageIO.read(TextureChooser.theFileChooser.getSelectedFile());
-
-        TransformableTexturePaint paint = new TransformableTexturePaint(image,TransformableTexturePaint.KIND_TEXTURE);
-        PaintableShape shape = new PaintableShape(new Rectangle2D.Double(0,0,image.getWidth(),image.getHeight()),PaintableShape.TYPE_FILL);
-        shape.setFillPaint(paint);
-        theOOPS.getDrawingArea().setUndoPoint(new CompleteUndo(theOOPS.getDrawingArea()));
-        theOOPS.getDrawingArea().addShape(shape);
-        theOOPS.getDrawingArea().repaint();
+        insertImage(image,theOOPS.getDrawingArea());
       }
-      catch( IOException ioe )
-      {
-        System.out.println(ioe);
-      }
+      catch( IOException ioe ) {System.out.println(ioe);} 
     }
+  }
+ 
+  public void insertImage(BufferedImage anImage, DrawingArea aDrawingArea)
+  {
+    TransformableTexturePaint paint = new TransformableTexturePaint(anImage,TransformableTexturePaint.KIND_TEXTURE);
+    PaintableShape shape = new PaintableShape(new Rectangle2D.Double(0,0,anImage.getWidth(),anImage.getHeight()),PaintableShape.TYPE_FILL);
+    shape.setFillPaint(paint);
+    aDrawingArea.setUndoPoint(new CompleteUndo(aDrawingArea));
+    aDrawingArea.addShape(shape);
+    aDrawingArea.repaint();
   }
 
   public void copyToClipboard( boolean shouldDrawBackground )
   {
+    BufferedImage image = getSelectedImage(shouldDrawBackground);
+    if( image != null )
+    {
+      ImageSelection imgSel = new ImageSelection(image);
+      Toolkit.getDefaultToolkit().getSystemClipboard().setContents(imgSel, null);
+    }
+  }
+
+  public BufferedImage getSelectedImage( boolean shouldDrawBackground )
+  {
     if( theOOPS.getDrawingArea() == null )
-      return;
+      return null;
 
     BufferedImage image = null;
 
@@ -1129,12 +1214,9 @@ public class OOPSMenu extends JMenuBar
         System.out.println(cnfe);
       }
 
-      if( image != null )
-      {
-        ImageSelection imgSel = new ImageSelection(image);
-        Toolkit.getDefaultToolkit().getSystemClipboard().setContents(imgSel, null);
-      }
+      return image;
     }
+    return null;
   }
 
   public void pasteFromClipboard()
@@ -1323,6 +1405,35 @@ public class OOPSMenu extends JMenuBar
 
   public void openFile( final File aFile )
   {
+    String filename = null;
+    filename = theOpenFileChooser.getSelectedFile().getAbsolutePath();
+    String extension = null;
+    int i = filename.lastIndexOf('.');
+
+    if (i > 0 &&  i < filename.length() - 1)
+    {
+      extension = filename.substring(i+1).toLowerCase();
+    }
+
+    if( extension == null || !theOpenTypes.contains(extension.toLowerCase()) )
+      return; //TODO(me):Need an error message
+
+    if(!extension.equals("oop"))
+    {
+      try
+      {
+        BufferedImage image = ImageIO.read(theOpenFileChooser.getSelectedFile());
+        DrawingArea area = theOOPS.addDrawingArea();
+        area.setImageSize(image.getWidth(),image.getHeight());
+        insertImage(image,area);
+        theFilenames.put(area,filename);
+        theExtensions.put(area,extension);
+        theOOPS.getDrawingFrame().setTitle(filename.substring(filename.lastIndexOf(System.getProperty("file.separator"))+1) + "." + extension);
+      } 
+      catch( IOException ioe ) {System.out.println(ioe);}
+      return;
+    }
+
     final Runnable run;
     final Thread thread;
 
@@ -1388,8 +1499,15 @@ public class OOPSMenu extends JMenuBar
 
   public void save()
   {
+    String[] file = getSaveFile();
+    if( file != null )
+      doSaveWork(file[0],file[1]);
+  }
+
+  public String[] getSaveFile()
+  {
     if( theOOPS.getDrawingArea() == null )
-      return;
+      return null;
 
     while( theFileChooser.showSaveDialog(theOOPS) == JFileChooser.APPROVE_OPTION )
     {
@@ -1426,9 +1544,9 @@ public class OOPSMenu extends JMenuBar
         extension = ((MyFileFilter)(theFileChooser.getFileFilter())).getExtensions()[0];
       }
 
-      doSaveWork(filename,extension);
-      break;
+      return new String[]{filename,extension};
     }
+    return null;
   }
 
   private void doSaveWork( String filename, String extension )

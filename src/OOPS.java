@@ -59,7 +59,7 @@ public class OOPS extends JFrame
   
   public OOPS( String[] args )
   {
-    super("VOOPS - NicholasDower@gmail.com 2005");
+    super("VOOPS - NicholasDower@gmail.com 2006");
 
     JLabel label = new JLabel(new ImageIcon(this.getClass().getClassLoader().getResource("SplashScreen.png")));
 
@@ -73,7 +73,7 @@ public class OOPS extends JFrame
     panel.add(label,BorderLayout.CENTER);
     panel.add(progress,BorderLayout.PAGE_END);
 
-    JFrame.setDefaultLookAndFeelDecorated(false);
+    //JFrame.setDefaultLookAndFeelDecorated(false);
     JFrame splash = new JFrame();
     splash.setUndecorated(true);
     splash.getContentPane().setLayout(new BorderLayout());
@@ -86,7 +86,12 @@ public class OOPS extends JFrame
       Dimension size = Toolkit.getDefaultToolkit().getScreenSize();
       splash.setLocation((int)(size.width/2 - splash.getWidth()/2),(int)(size.height/2 - splash.getHeight()/2));
     }
-    catch( HeadlessException he ){}
+    catch( HeadlessException he )
+    {
+      System.out.println("What did you think would happen?");
+      he.printStackTrace(System.err);
+      return;
+    }
     splash.setVisible(true);
           
 
@@ -298,6 +303,7 @@ public class OOPS extends JFrame
     // Start the Beanshell Interpreter
     theScriptTool = new ScriptTool(this);
     theBeanshellInterpreter = new Interpreter(theBeanshellConsole);
+    final OOPS oops = this;
     new Thread(
       new Runnable()
       {
@@ -306,6 +312,7 @@ public class OOPS extends JFrame
           try
           {
             theBeanshellInterpreter.set("tools",theScriptTool);
+            theBeanshellInterpreter.set("oops",oops);
             theBeanshellInterpreter.run();
           }
           catch( EvalError e )
@@ -369,11 +376,12 @@ public class OOPS extends JFrame
     }
   }
 
-  public void addDrawingArea()
+  public DrawingArea addDrawingArea()
   {
     final DrawingArea area = new DrawingArea(this);
     area.setPreferredSize(new Dimension(300,300));
     addDrawingArea(area, "Untitled" );
+    return area;
   }
 
   public void addDrawingArea( final DrawingArea anArea, String aTitle )

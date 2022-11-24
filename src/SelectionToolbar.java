@@ -99,4 +99,8 @@ public class SelectionToolbar extends JPanel
     this.add(theTabbedPane);
     this.setPreferredSize(new Dimension(270,170));
   }
+
+  public boolean shouldPreserve() {
+    return theResizePanel.shouldPreserve();
+  }
 }

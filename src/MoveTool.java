@@ -489,6 +489,13 @@ public class MoveTool extends Tool implements Selectable
 
   public void resize( double anXFactor, double aYFactor, double aResizor )
   {
+    if( theSelectionToolbar.shouldPreserve() )
+    {
+      double min = Math.min(Math.abs(anXFactor),Math.abs(aYFactor));
+      anXFactor = anXFactor<0?-min:min;
+      aYFactor = aYFactor<0?-min:min;
+    }
+
     if( theSelectedShapes == null || theSelectedShapes.size() == 0)
       return;
 

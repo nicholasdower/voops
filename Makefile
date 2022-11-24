@@ -21,6 +21,10 @@ jar: VOOPS.jar
 run: build
 	java -Xmx400m -Xms400m -cp '.:images:build' VOOPS
 
+.PHONY: run-mac
+run-mac: build
+	java -Dapple.laf.useScreenMenuBar=true -Xmx400m -Xms400m -cp '.:images:build' VOOPS
+
 .PHONY: run-jar
 run-jar: VOOPS.jar
 	java -Xmx600m -Xms600m -jar VOOPS.jar

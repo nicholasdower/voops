@@ -151,6 +151,10 @@ public class ResizePanel extends JPanel
     shouldPreserve = aShouldPreserve;
   }
 
+  public boolean shouldPreserve() {
+    return shouldPreserve;
+  }
+
   public void paint( Graphics g )
   {
     if( theImage == null || theImage.getWidth() != getWidth() || theImage.getHeight() != getHeight() )

@@ -131,7 +131,7 @@ public class RadialChooser extends JPanel
       {
         current    = new Point2D.Double(x,y);
         distance   = DistanceGetter.getDistance(center,current);
-        percentage = distance/radius;
+        percentage = (distance/radius);
         thePercentages[x][y] = percentage;
       }
     }

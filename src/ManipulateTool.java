@@ -109,6 +109,7 @@ public class ManipulateTool extends Tool
       }
       else
       {
+//Put add a point code here
       }
       getDrawingArea().repaint();
     }
