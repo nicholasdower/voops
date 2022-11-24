@@ -711,7 +711,7 @@ public class OOPSMenu extends JMenuBar
     exitItem.addActionListener(exitListener);
 
     undoItem.addActionListener(undoListener);
-    redoItem.addActionListener(undoListener);
+    redoItem.addActionListener(redoListener);
     copyShapesItem.addActionListener(copyShapeListener);
     pasteShapesItem.addActionListener(pasteShapeListener);
     pasteFromClipboardItem.addActionListener(pasteFromClipboardListener);
