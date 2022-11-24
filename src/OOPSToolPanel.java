@@ -139,7 +139,7 @@ public class OOPSToolPanel extends JPanel
           if( theCurrentTool != null )
             theCurrentTool.loseControl();
           theCurrentTool = null;
-          theCurrentTool = new RectangleTool(theOOPS.getDrawingArea(),theOOPS.getType());
+          theCurrentTool = new RectangleTool(theOOPS.getDrawingArea(),theOOPS.getShapeType());
 
           theOOPS.setToolbar(theCurrentTool.getToolbar(),((OOPSButton)e.getSource()).getIcon(),"Rectangle Tool");
 
@@ -165,7 +165,7 @@ public class OOPSToolPanel extends JPanel
           if( theCurrentTool != null )
             theCurrentTool.loseControl();
           theCurrentTool = null;
-          theCurrentTool = new RoundRectangleTool(theOOPS.getDrawingArea(),theOOPS.getType());
+          theCurrentTool = new RoundRectangleTool(theOOPS.getDrawingArea(),theOOPS.getShapeType());
 
           theOOPS.setToolbar(theCurrentTool.getToolbar(),((OOPSButton)e.getSource()).getIcon(),"Round Rectangle Tool");
 
@@ -191,7 +191,7 @@ public class OOPSToolPanel extends JPanel
           if( theCurrentTool != null )
             theCurrentTool.loseControl();
           theCurrentTool = null;
-          theCurrentTool = new EllipseTool(theOOPS.getDrawingArea(),theOOPS.getType());
+          theCurrentTool = new EllipseTool(theOOPS.getDrawingArea(),theOOPS.getShapeType());
 
           theOOPS.setToolbar(theCurrentTool.getToolbar(),((OOPSButton)e.getSource()).getIcon(),"Ellipse Tool");
 
@@ -217,7 +217,7 @@ public class OOPSToolPanel extends JPanel
           if( theCurrentTool != null )
             theCurrentTool.loseControl();
           theCurrentTool = null;
-          theCurrentTool = new PolygonTool(theOOPS.getDrawingArea(),theOOPS.getType());
+          theCurrentTool = new PolygonTool(theOOPS.getDrawingArea(),theOOPS.getShapeType());
 
           theOOPS.setToolbar(theCurrentTool.getToolbar(),((OOPSButton)e.getSource()).getIcon(),"Polygon Tool");
 
@@ -244,7 +244,7 @@ public class OOPSToolPanel extends JPanel
             theCurrentTool.loseControl();
 
           theCurrentTool = null;
-          theCurrentTool = new PolygonPenTool(theOOPS.getDrawingArea(),theOOPS.getType());
+          theCurrentTool = new PolygonPenTool(theOOPS.getDrawingArea(),theOOPS.getShapeType());
 
           theOOPS.setToolbar(theCurrentTool.getToolbar(),((OOPSButton)e.getSource()).getIcon(),"Polygon Pen Tool");
 
@@ -270,7 +270,7 @@ public class OOPSToolPanel extends JPanel
           if( theCurrentTool != null )
             theCurrentTool.loseControl();
           theCurrentTool = null;
-          theCurrentTool = new SmoothPolygonTool(theOOPS.getDrawingArea(),theOOPS.getType());
+          theCurrentTool = new SmoothPolygonTool(theOOPS.getDrawingArea(),theOOPS.getShapeType());
 
 
 
@@ -297,7 +297,7 @@ public class OOPSToolPanel extends JPanel
           if( theCurrentTool != null )
             theCurrentTool.loseControl();
           theCurrentTool = null;
-          theCurrentTool = new CubicCurveTool(theOOPS.getDrawingArea(),theOOPS.getType());
+          theCurrentTool = new CubicCurveTool(theOOPS.getDrawingArea(),theOOPS.getShapeType());
 
           theOOPS.setToolbar(theCurrentTool.getToolbar(),((OOPSButton)e.getSource()).getIcon(),"Cubic Curve Tool");
 
@@ -323,7 +323,7 @@ public class OOPSToolPanel extends JPanel
           if( theCurrentTool != null )
             theCurrentTool.loseControl();
           theCurrentTool = null;
-          theCurrentTool = new QuadCurveTool(theOOPS.getDrawingArea(),theOOPS.getType());
+          theCurrentTool = new QuadCurveTool(theOOPS.getDrawingArea(),theOOPS.getShapeType());
 
           theOOPS.setToolbar(theCurrentTool.getToolbar(),((OOPSButton)e.getSource()).getIcon(),"Quad Curve Tool");
 
@@ -349,7 +349,7 @@ public class OOPSToolPanel extends JPanel
           if( theCurrentTool != null )
             theCurrentTool.loseControl();
           theCurrentTool = null;
-          theCurrentTool = new TextTool(theOOPS.getDrawingArea(),theOOPS.getType());
+          theCurrentTool = new TextTool(theOOPS.getDrawingArea(),theOOPS.getShapeType());
 
           theOOPS.setToolbar(theCurrentTool.getToolbar(),((OOPSButton)e.getSource()).getIcon(),"Text Tool");
 

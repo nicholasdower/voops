@@ -519,7 +519,7 @@ public class OOPS extends JFrame
     theFillStrokePanel.setStroke(aStroke);
   }
 
-  public int getType()
+  public int getShapeType()
   {
     return PaintableShape.TYPE_BOTH;
   }

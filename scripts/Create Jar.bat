@@ -1,1 +1,0 @@
-jar -cmf MANIFEST.MF VOOPS.jar *.*

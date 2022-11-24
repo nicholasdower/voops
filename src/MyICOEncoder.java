@@ -265,12 +265,12 @@ import javax.imageio.ImageTypeSpecifier;      //An ImageTypeSpecifier is gotten 
      *      Height          (4 bytes), scanlines in the color map + transparent map (iconinfo.height * 2)
      *      Planes          (2 bytes), always 1
      *      BitCount        (2 bytes), 1,4,8,24,32 (see iconinfo for details)
-     *      Compression     (4 bytes), we don’t use this (0)
-     *      SizeImage       (4 bytes), we don’t use this (0)
-     *      XPelsPerMeter   (4 bytes), we don’t use this (0)
-     *      YPelsPerMeter   (4 bytes), we don’t use this (0)
-     *      ColorsUsed      (4 bytes), we don’t use this (0)
-     *      ColorsImportant (4 bytes), we don’t use this (0)
+     *      Compression     (4 bytes), we don't use this (0)
+     *      SizeImage       (4 bytes), we don't use this (0)
+     *      XPelsPerMeter   (4 bytes), we don't use this (0)
+     *      YPelsPerMeter   (4 bytes), we don't use this (0)
+     *      ColorsUsed      (4 bytes), we don't use this (0)
+     *      ColorsImportant (4 bytes), we don't use this (0)
      *
      *  Palette
      *      This will only be used for images containing 256 colors or less
